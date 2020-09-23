@@ -4,6 +4,7 @@ title:     		Pytorch(v>=1.6.0) performance tuning tips
 author:     	Vegard Bergsvik Øvstegård
 tags:           post optimizations machine-learning
 subtitle:    	Simple techniques to improve training performance
+category:       semantic_segmentation
 ---
 
 # Enable asynchronous data loading & augmentation
