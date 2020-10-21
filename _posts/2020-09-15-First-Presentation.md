@@ -23,7 +23,7 @@ vertical:		</section><section markdown="1">
 <br/>
 <br/>
 
-Days until delivery: 126 days
+Days until delivery: 245 days
 
 {{ page.horizontal }}
 <!-- Start Writing Below in Markdown -->
