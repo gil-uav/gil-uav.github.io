@@ -18,7 +18,14 @@ altmetric: true
 # Build settings
 plugins:
   - jekyll-paginate
+  - jekyll/scholar
+scholar:
+  style: "https://github.com/citation-style-language/styles/blob/master/ieee.csl"
+  bibliography: "library.bib"
 markdown: kramdown
+kramdown:
+  toc_levels: 1..4
+mathjax: true
 highlighter: rouge
 permalink: pretty
 paginate: 10

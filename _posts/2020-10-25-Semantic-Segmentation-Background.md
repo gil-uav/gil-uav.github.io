@@ -179,3 +179,5 @@ Deconvolution, sometimes also called Transposed Convolution or fractionally stri
 On a high level, transposed convolution is exactly the opposite process of a normal convolution i.e., the input volume is a low resolution image and the output volume is a high-resolution image.
 A normal convolution can be described as a matrix multiplication of input image and filter to produce the output image. 
 In short, by taking the transpose of the filter matrix, it is possible to reverse the convolution process, hence the name transposed convolution.
+
+{% bibliography -cited %}
