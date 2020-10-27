@@ -1,0 +1,28 @@
+callback([
+
+  {
+    "text": "First progress presentation",
+    "href": "https://gil-uav.github.io//2020/09/15/First-Presentation/"
+  } ,
+
+  {
+    "text": "GPS-independent localization framework for Aerial vehicles",
+    "href": "https://gil-uav.github.io//2020/09/22/Essay/"
+  } ,
+
+  {
+    "text": "Pytorch(v>=1.6.0) performance tuning tips",
+    "href": "https://gil-uav.github.io//semantic_segmentation/2020/09/23/Pytorch-Optimizations/"
+  } ,
+
+  {
+    "text": "Second progress presentation",
+    "href": "https://gil-uav.github.io//2020/10/16/Second-Presentation/"
+  } ,
+
+  {
+    "text": "Semantic Segmentation Background",
+    "href": "https://gil-uav.github.io//semantic_segmentation/2020/10/25/Semantic-Segmentation-Background/"
+  } 
+
+])

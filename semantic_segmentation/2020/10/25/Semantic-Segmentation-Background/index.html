@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="GPS-Independent Localization for UAVs">
+	<meta property="og:title" content="Semantic Segmentation Background" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://gil-uav.github.io////semantic_segmentation/2020/10/25/Semantic-Segmentation-Background/" />
+<meta property="og:image" content="https://gil-uav.github.io///img/home-bg-2.jpg">
+	
+	
+
+	<meta name="citation_title" content="Project Pages - An Integrated Scientific Blogging Template">
+
+
+<meta name="citation_author" content="Vegard Bergsvik Øvstegård">
+
+
+
+	
+
+	<link rel='shortcut icon' type='image/png' href='/favicon.png' />
+
+    <title>Semantic Segmentation Background - GIL-UAV</title>
+
+    <link rel="canonical" href="https://gil-uav.github.io//semantic_segmentation/2020/10/25/Semantic-Segmentation-Background/">
+	
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://gil-uav.github.io//css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://gil-uav.github.io//css/clean-blog.css">
+	
+	<!-- Adjust Colors -->
+    <link rel="stylesheet" href="https://gil-uav.github.io//colorscheme.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="https://gil-uav.github.io//css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<!-- Math Jax -->
+	<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript"
+	src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		TeX: { equationNumbers: { autoNumber: "AMS" } }
+	});
+	</script>
+
+	<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js" type="text/javascript"></script>-->
+
+    <!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script src="https://gil-uav.github.io//js/clean-blog.min.js "></script>
+	
+	
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-100795269-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+	
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+</script>
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">GIL-UAV</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+				
+                <li>
+                    <a href="/projects/mcl/">Monte Carlo Localization</a>
+                </li>
+                
+                <li>
+                    <a href="/projects/optimizations/">Optimizations</a>
+                </li>
+                
+                <li>
+                    <a href="/projects/semantic_segmentation/">Semantic segmentation</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/about/">About</a>
+                </li>
+                
+                <li>
+                    <a href="/search/">Search</a>
+                </li>
+                
+                <li>
+                    <a href="/members/">Members</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/home-bg-2.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading" style="padding: 30px 0">
+                    <h1>Semantic Segmentation Background</h1>
+                    
+                    <h2 class="subheading">This post contains an overview and description of former work and terminology related to Semantic Segmentation.</h2>
+                    
+                    <span class="meta">Posted by Vegard Bergsvik Øvstegård on October 25, 2020</span>	
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+	
+	
+		
+	
+
+<!-- Also Interesting -->
+
+
+
+	
+	
+	
+
+	
+	 
+	
+	
+			
+		
+			
+		
+	
+	
+	
+
+	
+	 
+	
+	
+		 
+		
+		<div class="float-right">
+		<div class="relevantpost" style="padding: 10px">
+		
+		
+		<h4> You may find interesting: </h4> 
+		
+		<hr class="style-one">
+		
+		<a href="/semantic_segmentation/2020/09/23/Pytorch-Optimizations/"><h2 class="post-title"> Pytorch(v>=1.6.0) performance tuning tips</h2></a>
+		
+		
+			<h4 class="post-subtitle">Simple techniques to improve training performance</h4>
+		
+		
+		<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by Vegard Bergsvik Øvstegård on September 23, 2020</p>
+		
+		<div class="notepad-index-post-tags" style="">
+		<a href="/search/index.html#post" title="Other posts from the Post tag">Post</a>&nbsp;<a href="/search/index.html#optimizations" title="Other posts from the Optimizations tag">Optimizations</a>&nbsp;<a href="/search/index.html#machine-learning" title="Other posts from the Machine-learning tag">Machine-learning</a>
+		</div> 
+		
+		
+		
+		
+	
+			
+		
+			
+		
+	
+	
+			
+		
+		 
+		
+		<hr class="style-one">
+		
+		<a href="/semantic_segmentation/2020/09/23/Pytorch-Optimizations/"><h2 class="post-title"> Pytorch(v>=1.6.0) performance tuning tips</h2></a>
+		
+		
+			<h4 class="post-subtitle">Simple techniques to improve training performance</h4>
+		
+		
+		<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by Vegard Bergsvik Øvstegård on September 23, 2020</p>
+		
+		<div class="notepad-index-post-tags" style="">
+		<a href="/search/index.html#post" title="Other posts from the Post tag">Post</a>&nbsp;<a href="/search/index.html#optimizations" title="Other posts from the Optimizations tag">Optimizations</a>&nbsp;<a href="/search/index.html#machine-learning" title="Other posts from the Machine-learning tag">Machine-learning</a>
+		</div> 
+		
+		
+		
+		
+	
+	
+
+	
+	 
+	
+	
+			
+		
+			
+		
+	
+	
+			
+		
+			
+		
+	
+	
+	
+
+	
+	 
+	
+	
+			
+		
+			
+		
+	
+	
+	
+
+
+		</div>
+		</div>
+
+<!-- Post Content -->
+<style>
+img {
+	display:block;
+	max-width:  100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media only screen and (min-width: 1000px) {
+img {
+	-moz-transition:-moz-transform 0.5s ease-in; 
+	-webkit-transition:-webkit-transform 0.5s ease-in; 
+	-o-transition:-o-transform 0.5s ease-in;
+}
+img:active{
+	-moz-transform:scale(1.2); 
+	-webkit-transform:scale(1.2);
+	-o-transform:scale(1.2);
+}
+}
+
+@media only screen and (min-width: 1250px) {
+img {
+	-moz-transition:-moz-transform 0.5s ease-in; 
+	-webkit-transition:-webkit-transform 0.5s ease-in; 
+	-o-transition:-o-transform 0.5s ease-in;
+}
+img:active{
+	-moz-transform:scale(1.5); 
+	-webkit-transform:scale(1.5);
+	-o-transform:scale(1.5);
+}
+}
+
+@media only screen and (min-width: 1500px) {
+img {
+	-moz-transition:-moz-transform 0.5s ease-in; 
+	-webkit-transition:-webkit-transform 0.5s ease-in; 
+	-o-transition:-o-transform 0.5s ease-in;
+}
+img:active{
+	-moz-transform:scale(2); 
+	-webkit-transform:scale(2);
+	-o-transform:scale(2);
+}
+}
+</style>
+
+<article>
+    <div id="content" class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h1 id="semantic-segmentation">Semantic Segmentation</h1>
+
+<p><img src="/img/unet_prelim1.png" alt="Semantic images segmentation." /></p>
+
+<p>The goal of semantic image segmentation is to classify each pixel of an input image with a corresponding class of what is being represented. Because we’re predicting for every pixel in the image, this task is commonly referred to as dense prediction. The expected output in semantic segmentation is a complete high resolution image in which all the pixels are classified.</p>
+
+<h2 id="convolutional-neural-networks">Convolutional Neural Networks</h2>
+<p>A <a href="https://www.sciencedirect.com/topics/computer-science/convolutional-neural-networks">Convolutional Neural Network</a> (CNN), in short, is a deep learning algorithm commonly used to, assign importance and differentiate between various objects and aspects of an image fed into it. It does so by changing and updating inherent weights and biases, based on a ground truth via supervised learning.</p>
+
+<p>To some extent, they are very similar to regular neural networks that use <a href="https://www.sciencedirect.com/topics/computer-science/multilayer-perceptron">Multilayer perceptrons</a>(MLPs), both are made up of learnable weights. But contrary to MLPs, CNNs have an architecture that explicitly assumes its inputs have structures like images. This allows encoding said property into the architecture, by sharing the weights for each location in the image and having neurons respond only locally. I.e a CNN is composed of convolutional layers without any fully-connected layers or MLPs usually found at the end. This provides efficiency for the forward pass implementation, and most importantly reduces the number of parameters in the network compared to a fully connected network(FCN). E.g if a 3-channel image of size 256 by 256 pixels were to be feed into an FCN, it would require the first hidden layer to have 256<em>256</em>3=196608 input weights.</p>
+
+<p><img src="/img/cnn_example.png" alt="A common outline of a very shallow Convolutional Neural Network. One Convolutional layer and one Pooling layer. Input images are depicted as a 3D block as they often have 3 channels(RGB).\label{fig:cnn_example}" /></p>
+
+<p>The pre-processing required in a CNN is also much lower as compared to other classification algorithms. While in primitive methods filters are hand-engineered, with enough training, CNNs can learn these filters. The architecture of a CNN is analogous to that of the connectivity pattern of Neurons in the Human Brain and was inspired by the organization of the Visual Cortex. Individual neurons respond to stimuli only in a restricted region of the visual field known as the Receptive Field. A collection of such fields overlap to cover the entire visual area. In particular, a node in a layer is only connected to a small region of the previous layer, contrary to each node in the layer before in a FCN. As mentioned, this reduces the number of parameters vastly.</p>
+
+<h3 id="forward-propagation">Forward propagation</h3>
+<p>Forward propagation in a CNN architecture consists mostly of convolutional layers, pooling layers, and activation functions.</p>
+
+<p>Convolution is the first layer to extract features from an input image or a previous layer. Convolution preserves the relationship between pixels by learning image features using small filters, also known as kernels, passing them over the image.
+I.e layer values from small areas in the previous layer or input images are used to calculate new values in the current layer.
+The small area is covered by a kernel of trainable weights, and the use of a compact area allows the new value in the current layer to retain surrounding information from that area in the former layer.</p>
+
+<p>Pooling layers offer an approach to downsample areas, known as feature maps, by summarizing the presence of the different values in patches of the feature map. Two common pooling methods are average pooling and max pooling that summarize the average presence of a feature and the most activated presence of a feature respectively. In short, it is an operation whose objective is to reduce spatial size of the input by selecting a certain value and discarding the rest.</p>
+
+<p>Activation functions are usually somewhat simple functions implemented at the end of a layer. They are highly important as they introduce non-linearity to the networks, which allow the layer and neurons to learn and pass answers down the pipeline.</p>
+
+<p>Commonly, the last layers of CNNs are fully connected layers to make predictions. 
+However, in this work, other modules are used in the aft parts of the architecture. For this reason, there are no further mentions of FCNs.
+The output layer is generally a Softmax layer to clamp the class scores to a value between 0 and 1. The aforementioned layers are described in this subsection.</p>
+
+<h4 id="convolutional-layer">Convolutional layer</h4>
+<p>Convolutional layers are the most important building blocks used in CNNs, hence their
+name <a class="citation" href="#stanford_cnn">[1]</a>.
+In the context of a CNN, convolution is a linear operation that involves the multiplication of a set of weights with the input, much like a traditional neural network. Given that the technique was designed for two-dimensional input, the multiplication is performed between an array of input data and a two-dimensional array of weights, called a filter or a kernel.</p>
+
+<p><img src="/img/convolutional_layer.png" alt="The outline of a convolutional layer.\label{fig:convolutional_layer}" /></p>
+
+<p>The filter is smaller than the input data, also the type of multiplication applied between a filter-sized patch of the input and the filter is a dot product. This multiplication produces a single scalar, resulting in a two-dimensional activation map. The spatial size of this activation map depends on whether the input was padded or not. Padding refers to the number of pixels added to an image when it is being processed by the kernel. Adding padding to an image processed by a CNN allows for a more accurate analysis of images, and allow the spatial size of the resulting activation map to be the same as the input.</p>
+
+<h4 id="pooling-layer">Pooling Layer</h4>
+<p>Pooling is a common feature imbibed into CNN architectures, and the main idea behind these layers
+is to sum-up features from maps generated by previous convolution layers <a class="citation" href="#stanford_cnn">[1]</a>. Formally its function is to reduce the spatial size of the activation maps, such that it reduces the number of parameters and hence computation
+in the network.</p>
+
+<p>The most common form is max pooling. In a relatively simple operation, a kernel of the chosen size is applied as a sliding window across each activation map individually. The largest value within the area the kernel is applied to in the activation map is then chosen as the representative for that area. The kernel size and the stride are hyperparameters chosen by the designer of the architecture. The stride tells of how many pixels the kernel jump after each application. If the stride is equal to the number of rows in the kernel, none of the areas the kernel is applied to will overlap. In a max-pool layer, this is the most common approach.</p>
+
+<p><img src="/img/max_pooling.png" alt="Example of max-pooling in a single channel activation map with kernel sizes of 2x2, and stride of
+2.\label{fig:max_pooling}" /></p>
+
+<p>Max pooling is done in part to help over-fitting by providing an abstracted form of the activation maps. As well as it reduces the computational cost by reducing the number of parameters to learn, and it also provides basic translation invariance to the internal representations. Max pooling is done by applying a max filter over non-overlapping subregions of the initial activation maps.</p>
+
+<p>The idea is to retain the information which best describes the context of the image, from each region and throw away the information which is not important.</p>
+
+<h4 id="rectified-linear-unit">Rectified Linear Unit</h4>
+<p>The Rectified Linear Unit(ReLu) is a non-linear activation function that is used in multi-layer neural networks or deep neural networks. For input values of $x$ the function can be represented as:</p>
+
+<p>$f(x) = max(0,x)$</p>
+
+<p>According to equation @eq:relu, the output of ReLu is the maximum value between zero and the input value. The output is equal to zero when the input value is negative and the input value when the input is positive. I.e</p>
+
+<p>$ f(x) = \begin{cases}
+      0, &amp; \text{if}\ x&lt;1 <br />
+      x, &amp; \text{if}\ x\geq0
+    \end{cases}$</p>
+
+<p>Traditionally, some prevalent non-linear activation functions, like sigmoid functions and hyperbolic tangent, have been used in neural networks to get activation values for each neuron. However, the ReLu function has become a more popular activation function because it can accelerate the training speed of deep neural networks compared to traditional activation functions. This because the derivative of ReLu is 1 for positive input. Owing to a constant, deep neural networks do not need to take additional time for computing error terms during the training phase.</p>
+
+<p>The ReLu function does not trigger the vanishing gradient problem when the number of layers grows. This is because the function does not have an asymptotic upper and lower bound. Thus, the earliest layer (the first hidden layer) can receive the errors coming from the last layers to adjust all weights between layers. By contrast, a traditional activation function like sigmoid is restricted between 0 and 1, so the errors become small for the first hidden layer. The mentioned scenario will lead to a poorly trained neural network.</p>
+
+<h4 id="normalization-layer">Normalization Layer</h4>
+<p>One of the most common Normalization techniques used nowadays is Batch Normalization (BN). It is a strategy that normalizes interlayer outputs in a neural network. This in effect resets the distribution of the output from previous layers to be more efficiently processed by the subsequent layers <a class="citation" href="#deepai_bs">[2]</a>.</p>
+
+<p>It relieves numerous problems with properly initializing neural networks. In practice, networks that use BN are significantly more robust to bad initialization. Additionally, BN can be interpreted as doing preprocessing at every layer of the network, but integrated into the network itself in a differentiable manner <a class="citation" href="#stanford">[3]</a>.</p>
+
+<p>The method leads to faster learning rates, as normalization ensures that there are no extreme activation values. It also allows each layer to learn independently from others, and it reduces the amount of data lost between the processing layer. This improves learning accuracy throughout the network. Ioeffe and Szegezy  <a class="citation" href="#ioffe">[4]</a> report a state of the art classification model that achieved the same accuracy but requiring 14 times fewer learning iterations to do so using BN.</p>
+
+<p>However, according to Wu et al.  <a class="citation" href="#wu">[5]</a> using batch sizes (BS) less than 32 with BN results in
+a dramatically increased model error. There are situations that one has to settle for sizes of BS
+less than 32. I.e when memory consumption of each data sample is too high, with large networks or
+simply with lacking hardware requirements. This work does handle somewhat high-resolution images, and for this reason, alternatives to BN which work well with small batch size are needed. Group Normalization (GN), proposed by Wu et al. is one of the latest normalization methods that avoids exploiting the batch dimension, thus is independent of batch size. They report that with a ResNet-50 model trained in the ImageNet training set using 8 GPUs, a reduction in BS from 32 to 2 resulted in little to no change in error with GN contrary to an increase in error when using BN.</p>
+
+<p><img src="/img/gn.png" alt="ImageNet classification error vs. batch sizes.  &lt;a class=&quot;citation&quot; href=&quot;#wu&quot;&gt;[5]&lt;/a&gt; \label{fig:max_pooling}" /></p>
+
+<h4 id="softmax-layer">Softmax layer</h4>
+<p>In many neural networks, the last layer is often a softmax layer <a class="citation" href="#deepai_bs">[2]</a>. It is used to transform values of the
+class scores to numbers ranging from 0 to 1. The sum of the class-wise predictions is 1, so the
+layer can be interpreted as a probability spread function and looks like this: 
+$f_j(\mathbf{z}) = \frac{e^{z_j}}{\sum_ke^{z_k}}$ 
+where $\mathbf{z}$ is the set of scores to be squashed. As one can see, the formula takes each class score in the power of $e$, and divides it by the sum of the entire set in the power of $e$.</p>
+
+<h3 id="backpropagation">Backpropagation</h3>
+<p>Backpropagation, short for backward propagation of errors is arguably the most important part of
+the training process. This is where the learnable parameters, weights, and biases in the network are
+updated to make improved predictions  (missing reference).
+When a network is run through the training loop, a loss function is calculated, which represents the network’s 
+predictions and its distance from the true labels. Backpropagation allows us to calculate the gradient of the loss function, proceeding backward throughout the network from the last layer to the first. For the gradient to be calculated at a particular layer, the gradients of all following layers are combined via the chain rule of calculus. This enables each weight to be updated individually to, 
+gradually reduce the loss function over many training iterations. Loss functions are described in more detail further down in this section.</p>
+
+<p>The loss function provides the loss, or error, $L$ at each output node, and the objective
+is to minimize this value. The input to this function is $\mathbf{x}$ and consists
+of the input values in the training data and the learnable parameters
+in the network. The input data is static and cannot be altered to minimize $L$, but
+the parameters are. The backpropagation method calculates how much the parameters should be altered,
+by finding their gradients relative to the error output from the loss function.
+Said gradient is calculated by taking the partial derivatives of the output with respect to input values.
+E.g if an output depends on three input values, the output has three partial
+derivatives. The gradient itself is the vector consisting of all these partial
+derivative values.</p>
+
+<p>To attain the gradient, partial derivatives between each parameter relative to
+the error output that the particular parameter contributed to must be calculated.
+For this to be possible, the process must start at the output layer.
+Every node obtains input values from a set of nodes in the previous layer.
+In the forward pass, each node calculates its output values based on the input and
+the gradient of the input values relative to its output value.
+During backpropagation, moving  backward from the output layer to the input layer.
+All the nodes in time learn the gradient of its output value relative relative to output
+of the value it contributed to calculating. Per the chain rule, the aforementioned gradient
+should then be multiplied with all the local gradients that the node has obtained. The process hence
+repeats when the input nodes to the particular node know the gradient of its output relative to
+the final error output value. In this manner, the gradient for every parameter from the output to
+the input layer will know its gradient relative to the final error output value of which they
+contributed to, and can be modified to minimize said error based on the gradient value.</p>
+
+<h4 id="loss-functions">Loss functions</h4>
+<p>The loss function is used to determine the error or in other words the loss, between a network
+prediction and a given target value. It expresses how far off the network is at doing a correct prediction.
+It is usually expressed as a scalar that increases by how far off the model is. As the goal of the
+model is to perform correct predictions, the main objective of the training process is to minimize
+this error.</p>
+
+<p>A common loss function is the cross-entropy loss function. 
+Cross-entropy loss, or log loss, measures the performance of a classification model whose output is a probability value between 0 and 1.
+The function can be described as:</p>
+
+<p>$ -\sum^M_{c=1}y_{o,c}log(p_{o,c}) $</p>
+
+<p>where $M$ is the number of classes, $y$ is the binary indicator if class label $c$ is the correct
+prediction for the observation $o$ and $p$ is the predicted probability observation $o$ 
+With binary classification, where the number of classes $M$ equals 2, the cross-entropy can be
+calculated as:</p>
+
+<p>$-(ylog(p)+1-y)log(1-p))$</p>
+
+<p>If $M&gt;2$ we calculate a separate loss for each class label per observation and sum the result.</p>
+
+<p>In practice, this gives a high loss value to wrong predictions and a 0 loss value to the right predictions. This is the behavior that is wanted in a loss function since when minimized it will give better predictions. 
+This is the base of the loss function used in this work.</p>
+
+<h2 id="fully-convolutional-network">Fully Convolutional Network</h2>
+<p>The goal of semantic image segmentation is to classify each pixel of an input image with a corresponding class of what is being represented. Because we’re predicting for every pixel in the image, this task is commonly referred to as dense prediction. The expected output in semantic segmentation is a complete high-resolution image in which all the pixels are classified.</p>
+
+<p>In a typical convolutional network, the height and width of the input gradually reduce i.e downsampling, because of pooling.
+This helps the filters in the deeper layers to focus on a larger receptive field. However the depth, number of filters used, gradually increase which aids in extracting more complex features from the image.
+From the pooling layers, one can somewhat conclude that by downsampling, the model better understands the context presented in the image, but it loses the information of locality, i.e where said context is located.
+Thus if one were to use a regular convolutional network with pooling layers and dense layers, the locality information will be lost and one only retains the contextual information.</p>
+
+<p>A Fully Convolutional Network(FCN) is a CNNs based network that progresses from coarse to fine
+inference to predict every pixel like semantic segmentation requires <a class="citation" href="#fcn">[6]</a>.</p>
+
+<h3 id="deconvolution">Deconvolution</h3>
+<p>To get an output that is expected in semantic segmentation, there is a need to convert, or
+upsample, the low-resolution information provided by a typical CNN to high resolution, and recover the locality
+information.</p>
+
+<p>Deconvolution, sometimes also called Transposed Convolution or fractionally strided convolution, is such a technique to perform upsampling of an image with learnable parameters <a class="citation" href="#fsc">[7]</a>.
+On a high level, transposed convolution is exactly the opposite process of a normal convolution i.e., the input volume is a low resolution image and the output volume is a high-resolution image.
+A normal convolution can be described as a matrix multiplication of input image and filter to produce the output image. 
+In short, by taking the transpose of the filter matrix, it is possible to reverse the convolution process, hence the name transposed convolution.</p>
+
+<ol class="bibliography"><li><span id="stanford_cnn">[1]“CS231n Convolutional Neural Networks for Visual Recognition.” Accessed: Oct. 24, 2020. [Online]. Available at: https://cs231n.github.io/convolutional-networks/.</span></li>
+<li><span id="deepai_bs">[2]“Batch Normalization Definition | DeepAI.” Accessed: Oct. 23, 2020. [Online]. Available at: https://deepai.org/machine-learning-glossary-and-terms/batch-normalization.</span></li>
+<li><span id="stanford">[3]“CS231n Convolutional Neural Networks for Visual Recognition.” Accessed: Oct. 23, 2020. [Online]. Available at: https://cs231n.github.io/.</span></li>
+<li><span id="ioffe">[4]S. Ioffe and C. Szegedy, “Batch normalization: Accelerating deep network training by reducing internal covariate shift,” in <i>32nd International Conference on Machine Learning, ICML 2015</i>, Feb. 2015, vol. 1, pp. 448–456, [Online]. Available at: https://arxiv.org/abs/1502.03167v3.</span></li>
+<li><span id="wu">[5]Y. Wu and K. He, “Group Normalization,” <i>International Journal of Computer Vision</i>, vol. 128, no. 3, pp. 742–755, Mar. 2020, doi: 10.1007/s11263-019-01198-w.</span></li>
+<li><span id="fcn">[6]J. Long, E. Shelhamer, and T. Darrell, “Fully Convolutional Networks for Semantic Segmentation,” <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i>, vol. 39, no. 4, pp. 640–651, Nov. 2014, [Online]. Available at: http://arxiv.org/abs/1411.4038.</span></li>
+<li><span id="fsc">[7]“Fractionally-Strided-Convolution Definition | DeepAI.” Accessed: Oct. 25, 2020. [Online]. Available at: https://deepai.org/machine-learning-glossary-and-terms/fractionally-strided-convolution.</span></li></ol>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2020/10/16/Second-Presentation/" data-toggle="tooltip" data-placement="top" title="Second progress presentation">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+<div class="container" style="padding-right: 50px;padding-left: 50px;">
+<div class="row">
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="disqus_thread">
+
+</div>
+</div>
+</div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = '';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+<hr>
+
+
+	
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/gil-uav/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+									
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+</body>
+
+</html>
