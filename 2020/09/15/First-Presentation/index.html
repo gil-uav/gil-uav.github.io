@@ -70,162 +70,138 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-<section data-background="">
-  <section>
-    <h2 id="first-progress-presentation">First progress presentation</h2>
-
-    <hr />
-
-    <h4 id="vegard-bergsvik-vstegrd">Vegard Bergsvik Øvstegård</h4>
-    <h4 id="fri---18-sep-2020">Fri - 18 Sep 2020</h4>
-
-    <p><br />
-<br /></p>
-
-    <p>Days until delivery: 245 days</p>
-
-  </section>
+<section markdown="1" data-background="">
+<section markdown="1">
+<h2 id="first-progress-presentation">First progress presentation</h2>
+<hr>
+<h4 id="vegard-bergsvik-øvstegård">Vegard Bergsvik Øvstegård</h4>
+<h4 id="fri---18-sep-2020">Fri - 18 Sep 2020</h4>
+<p><br/> <br/></p>
+<p>Days until delivery: 245 days</p>
 </section>
-<section data-background="">
-  <section>
-    <!-- Start Writing Below in Markdown -->
-
-    <h2 id="gil-uav">GIL-UAV</h2>
-    <p><strong>G</strong>PS-<strong>I</strong>ndependent <strong>L</strong>ocalization for <strong>UAV</strong>s</p>
-
-    <p><img src="/img/framework.png" alt="System diagram" /></p>
-
-  </section>
-  <section>
-
-    <h2 id="framework-simulation">Framework simulation</h2>
-
-    <iframe src="https://drive.google.com/file/d/1mx2gudpn-xdRaBKmrMXjMMrKQjHGAlqx/preview" width="640" height="480" allowfullscreen="true"></iframe>
-
-  </section>
 </section>
-<section data-background="">
-  <section>
-
-    <h3 id="current-status">Current status</h3>
-    <h4 id="section"><progress value="39" max="100"></progress></h4>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Task</th>
-          <th style="text-align: right">Progress</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><em>In progress</em>:</td>
-          <td style="text-align: right"> </td>
-        </tr>
-        <tr>
-          <td>1. Create U-net (PyTorch, multi-GPU)</td>
-          <td style="text-align: right"><progress value="65" max="100"></progress></td>
-        </tr>
-        <tr>
-          <td>2. Acquire &amp; improve Dataset</td>
-          <td style="text-align: right"><progress value="10" max="100"></progress></td>
-        </tr>
-        <tr>
-          <td><em>To do</em>:</td>
-          <td style="text-align: right"> </td>
-        </tr>
-        <tr>
-          <td>3. Train the U-net</td>
-          <td style="text-align: right"><progress value="0" max="100"></progress></td>
-        </tr>
-        <tr>
-          <td>4. Code dataset-producing software</td>
-          <td style="text-align: right"><progress value="0" max="100"></progress></td>
-        </tr>
-        <tr>
-          <td>5. Get drone footage</td>
-          <td style="text-align: right"><progress value="0" max="100"></progress></td>
-        </tr>
-        <tr>
-          <td>6. Implement framework(C++, SIMD, CUDA)</td>
-          <td style="text-align: right"><progress value="0" max="100"></progress></td>
-        </tr>
-        <tr>
-          <td><em>Completed</em></td>
-          <td style="text-align: right"> </td>
-        </tr>
-        <tr>
-          <td>Implement naive MCL algorithm (Python)</td>
-          <td style="text-align: right"><progress value="100" max="100"></progress></td>
-        </tr>
-        <tr>
-          <td>Get hardware (nVIDIA Jetson TX1)</td>
-          <td style="text-align: right"><progress value="100" max="100"></progress></td>
-        </tr>
-      </tbody>
-    </table>
-
-  </section>
-  <section>
-
-    <h2 id="current-results">Current results</h2>
-
-    <ul>
-      <li>MCL simulation with current measurement model works like a charm.
-        <ul>
-          <li>This is given a perfect segmentation, which will not occur IRL.</li>
-        </ul>
-      </li>
-    </ul>
-
-  </section>
+<section data-background>
+<section>
+<!-- Start Writing Below in Markdown -->
+<h2 id="gil-uav">GIL-UAV</h2>
+<p><strong>G</strong>PS-<strong>I</strong>ndependent <strong>L</strong>ocalization for <strong>UAV</strong>s</p>
+<figure>
+<img src="/img/framework.png" alt="" /><figcaption>System diagram</figcaption>
+</figure>
 </section>
-<section data-background="">
-  <section>
-
-    <h2 id="plan-for-the-next-fortnight">Plan for the next fortnight:</h2>
-
-    <p><br />
-<br /></p>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Week 39</th>
-          <th>Week 40</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Finish U-net code</td>
-          <td>Code dataset-producing software</td>
-        </tr>
-        <tr>
-          <td>Acquire &amp; improve Dataset</td>
-          <td>Start framework implementation</td>
-        </tr>
-        <tr>
-          <td>Train the U-net</td>
-          <td>Get drone footage</td>
-        </tr>
-        <tr>
-          <td>Get drone footage</td>
-          <td> </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- End Here -->
-  </section>
+<section>
+<h2 id="framework-simulation">Framework simulation</h2>
+<iframe src="https://drive.google.com/file/d/1mx2gudpn-xdRaBKmrMXjMMrKQjHGAlqx/preview" width="640" height="480" allowfullscreen="true">
+</iframe>
 </section>
-<section data-background="">
-  <section>
-
-    <h1 id="print"><a href="https://gil-uav.github.io//2020/09/15/First-Presentation//?print-pdf#">Print</a></h1>
-
-    <h1 id="back"><a href="https://gil-uav.github.io/">Back</a></h1>
-
-  </section>
+</section>
+<section data-background>
+<section>
+<h3 id="current-status">Current status</h3>
+<h4 id="section"><progress value="39" max="100" ></progress></h4>
+<table>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th style="text-align: right;">Progress</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>In progress</em>:</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>1. Create U-net (PyTorch, multi-GPU)</td>
+<td style="text-align: right;"><progress value="65" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td>2. Acquire &amp; improve Dataset</td>
+<td style="text-align: right;"><progress value="10" max="100" ></progress></td>
+</tr>
+<tr class="even">
+<td><em>To do</em>:</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td>3. Train the U-net</td>
+<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
+</tr>
+<tr class="even">
+<td>4. Code dataset-producing software</td>
+<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td>5. Get drone footage</td>
+<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
+</tr>
+<tr class="even">
+<td>6. Implement framework(C++, SIMD, CUDA)</td>
+<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td><em>Completed</em></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>Implement naive MCL algorithm (Python)</td>
+<td style="text-align: right;"><progress value="100" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td>Get hardware (nVIDIA Jetson TX1)</td>
+<td style="text-align: right;"><progress value="100" max="100" ></progress></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section>
+<h2 id="current-results">Current results</h2>
+<ul>
+<li>MCL simulation with current measurement model works like a charm.
+<ul>
+<li>This is given a perfect segmentation, which will not occur IRL.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section data-background>
+<section>
+<h2 id="plan-for-the-next-fortnight">Plan for the next fortnight:</h2>
+<p><br/> <br/></p>
+<table>
+<thead>
+<tr class="header">
+<th>Week 39</th>
+<th>Week 40</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Finish U-net code</td>
+<td>Code dataset-producing software</td>
+</tr>
+<tr class="even">
+<td>Acquire &amp; improve Dataset</td>
+<td>Start framework implementation</td>
+</tr>
+<tr class="odd">
+<td>Train the U-net</td>
+<td>Get drone footage</td>
+</tr>
+<tr class="even">
+<td>Get drone footage</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- End Here -->
+</section>
+</section>
+<section data-background>
+<section>
+<h1 id="print"><a href="https://gil-uav.github.io//2020/09/15/First-Presentation//?print-pdf#">Print</a></h1>
+<h1 id="back"><a href="https://gil-uav.github.io/">Back</a></h1>
+</section>
 </section>
 
 			</div>
