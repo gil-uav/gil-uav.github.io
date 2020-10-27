@@ -18,14 +18,17 @@ altmetric: true
 # Build settings
 plugins:
   - jekyll-paginate
+  - jekyll-pandoc
   - jekyll/scholar
 scholar:
   style: "https://github.com/citation-style-language/styles/blob/master/ieee.csl"
   bibliography: "library.bib"
-markdown: kramdown
-kramdown:
-  toc_levels: 1..4
-mathjax: true
+markdown: Pandoc
+pandoc:
+  extensions:
+    - csl: _styles/ieee.csl
+    - bibliography: _bibliography/library.bib
+    - filter: 'pandoc-eqnos'
 highlighter: rouge
 permalink: pretty
 paginate: 10
