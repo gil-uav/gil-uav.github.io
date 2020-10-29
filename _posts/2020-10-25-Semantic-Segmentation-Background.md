@@ -1,9 +1,9 @@
 ---
-layout:     	post
-title:     		Semantic Segmentation Background
-author:     	Vegard Bergsvik Øvstegård
-tags:           post machine-learning 
-subtitle:    	This post contains an overview and description of former work and terminology related to Semantic Segmentation.
+layout:         post
+title:          Semantic Segmentation Background
+author:         Vegard Bergsvik Øvstegård
+tags:           post machine-learning
+subtitle:       This post contains an overview and description of former work and terminology related to Semantic Segmentation.
 toc:            true
 category:       semantic_segmentation
 ---
@@ -15,9 +15,9 @@ category:       semantic_segmentation
 The goal of semantic image segmentation is to classify each pixel of an input image with a corresponding class of what is being represented. Because we’re predicting for every pixel in the image, this task is commonly referred to as dense prediction. The expected output in semantic segmentation is a complete high resolution image in which all the pixels are classified.
 
 ## Convolutional Neural Networks
-A [Convolutional Neural Network](https://www.sciencedirect.com/topics/computer-science/convolutional-neural-networks) (CNN), in short, is a deep learning algorithm commonly used to, assign importance and differentiate between various objects and aspects of an image fed into it. It does so by changing and updating inherent weights and biases, based on a ground truth via supervised learning. 
+A [Convolutional Neural Network](https://www.sciencedirect.com/topics/computer-science/convolutional-neural-networks) (CNN), in short, is a deep learning algorithm commonly used to, assign importance and differentiate between various objects and aspects of an image fed into it. It does so by changing and updating inherent weights and biases, based on a ground truth via supervised learning.
 
-To some extent, they are very similar to regular neural networks that use [Multilayer perceptrons](https://www.sciencedirect.com/topics/computer-science/multilayer-perceptron)(MLPs), both are made up of learnable weights. But contrary to MLPs, CNNs have an architecture that explicitly assumes its inputs have structures like images. This allows encoding said property into the architecture, by sharing the weights for each location in the image and having neurons respond only locally. I.e a CNN is composed of convolutional layers without any fully-connected layers or MLPs usually found at the end. This provides efficiency for the forward pass implementation, and most importantly reduces the number of parameters in the network compared to a fully connected network(FCN). E.g if a 3-channel image of size 256 by 256 pixels were to be feed into an FCN, it would require the first hidden layer to have **196608** input weights. 
+To some extent, they are very similar to regular neural networks that use [Multilayer perceptrons](https://www.sciencedirect.com/topics/computer-science/multilayer-perceptron)(MLPs), both are made up of learnable weights. But contrary to MLPs, CNNs have an architecture that explicitly assumes its inputs have structures like images. This allows encoding said property into the architecture, by sharing the weights for each location in the image and having neurons respond only locally. I.e a CNN is composed of convolutional layers without any fully-connected layers or MLPs usually found at the end. This provides efficiency for the forward pass implementation, and most importantly reduces the number of parameters in the network compared to a fully connected network(FCN). E.g if a 3-channel image of size 256 by 256 pixels were to be feed into an FCN, it would require the first hidden layer to have **196608** input weights.
 
 ![A common outline of a very shallow Convolutional Neural Network. One Convolutional layer and one Pooling layer. Input images are depicted as a 3D block as they often have 3 channels(RGB).\label{fig:cnn_example}](/img/cnn_example.png)
 
@@ -34,7 +34,7 @@ Pooling layers offer an approach to downsample areas, known as feature maps, by 
 
 Activation functions are usually somewhat simple functions implemented at the end of a layer. They are highly important as they introduce non-linearity to the networks, which allow the layer and neurons to learn and pass answers down the pipeline.
 
-Commonly, the last layers of CNNs are fully connected layers to make predictions. 
+Commonly, the last layers of CNNs are fully connected layers to make predictions.
 However, in this work, other modules are used in the aft parts of the architecture. For this reason, there are no further mentions of FCNs.
 The output layer is generally a Softmax layer to clamp the class scores to a value between 0 and 1. The aforementioned layers are described in this subsection.
 
@@ -65,14 +65,22 @@ The idea is to retain the information which best describes the context of the im
 #### Rectified Linear Unit
 The Rectified Linear Unit(ReLu) is a non-linear activation function that is used in multi-layer neural networks or deep neural networks. For input values of $x$ the function can be represented as:
 
-$f(x) = max(0,x)$ {#eq:relu}
+$$
+\begin{align*}
+f(x) = max(0,x)
+\end{align*}
+$$ {#eq:relu}
 
 According to equation @eq:relu, the output of ReLu is the maximum value between zero and the input value. The output is equal to zero when the input value is negative and the input value when the input is positive. I.e
 
-$f(x) = \begin{cases}
-      0, \text{if}\ x < 1 \\
-      x, \text{if}\ x \geq 0
-    \end{cases}$ {#eq:relu2}
+$$
+\begin{align*}
+f(x) = \begin{cases}
+x, \mbox{if } x \geq 0\\
+0, \mbox{otherwise}
+\end{cases}
+\end{align*}
+$$ {#eq:relu2}
 
 Traditionally, some prevalent non-linear activation functions, like sigmoid functions and hyperbolic tangent, have been used in neural networks to get activation values for each neuron. However, the ReLu function has become a more popular activation function because it can accelerate the training speed of deep neural networks compared to traditional activation functions. This because the derivative of ReLu is 1 for positive input. Owing to a constant, deep neural networks do not need to take additional time for computing error terms during the training phase.
 
@@ -95,7 +103,7 @@ simply with lacking hardware requirements. This work does handle somewhat high-r
 #### Softmax layer
 In many neural networks, the last layer is often a softmax layer[@deepai_bs]. It is used to transform values of the
 class scores to numbers ranging from 0 to 1. The sum of the class-wise predictions is 1, so the
-layer can be interpreted as a probability spread function and looks like this: 
+layer can be interpreted as a probability spread function and looks like this:
 $$f_j(\mathbf{z}) = \frac{e^{z_j}}{\sum_ke^{z_k}}$$ {#eq:softmax}
 where $\mathbf{z}$ is the set of scores to be squashed. As one can see, the formula takes each class score in the power of $e$, and divides it by the sum of the entire set in the power of $e$.
 
@@ -103,8 +111,8 @@ where $\mathbf{z}$ is the set of scores to be squashed. As one can see, the form
 Backpropagation, short for backward propagation of errors is arguably the most important part of
 the training process. This is where the learnable parameters, weights, and biases in the network are
 updated to make improved predictions [@deepai_bp].
-When a network is run through the training loop, a loss function is calculated, which represents the network's 
-predictions and its distance from the true labels. Backpropagation allows us to calculate the gradient of the loss function, proceeding backward throughout the network from the last layer to the first. For the gradient to be calculated at a particular layer, the gradients of all following layers are combined via the chain rule of calculus. This enables each weight to be updated individually to, 
+When a network is run through the training loop, a loss function is calculated, which represents the network's
+predictions and its distance from the true labels. Backpropagation allows us to calculate the gradient of the loss function, proceeding backward throughout the network from the last layer to the first. For the gradient to be calculated at a particular layer, the gradients of all following layers are combined via the chain rule of calculus. This enables each weight to be updated individually to,
 gradually reduce the loss function over many training iterations. Loss functions are described in more detail further down in this section.
 
 The loss function provides the loss, or error, $L$ at each output node, and the objective
@@ -140,22 +148,26 @@ It is usually expressed as a scalar that increases by how far off the model is. 
 model is to perform correct predictions, the main objective of the training process is to minimize
 this error.
 
-A common loss function is the cross-entropy loss function. 
+A common loss function is the cross-entropy loss function.
 Cross-entropy loss, or log loss, measures the performance of a classification model whose output is a probability value between 0 and 1.
-The function can be described as: 
+The function can be described as:
 
 $$ -\sum^M_{c=1}y_{o,c}\log(p_{o,c}) $$ {#eq:cross_entropy1}
 
 where $M$ is the number of classes, $y$ is the binary indicator if class label $c$ is the correct
-prediction for the observation $o$ and $p$ is the predicted probability observation $o$ 
+prediction for the observation $o$ and $p$ is the predicted probability observation $o$
 With binary classification, where the number of classes $M$ equals 2, the cross-entropy can be
-calculated as: 
+calculated as:
 
-$$ -(y\log(p)+1-y)\log(1-p)) $$ {#eq:cross_entropy2}
+$$
+\begin{align*}
+-(y\log(p)+1-y)\log(1-p))
+\end{align*}
+$$ {#eq:cross_entropy2}
 
 If $M>2$ we calculate a separate loss for each class label per observation and sum the result.
 
-In practice, this gives a high loss value to wrong predictions and a 0 loss value to the right predictions. This is the behavior that is wanted in a loss function since when minimized it will give better predictions. 
+In practice, this gives a high loss value to wrong predictions and a 0 loss value to the right predictions. This is the behavior that is wanted in a loss function since when minimized it will give better predictions.
 This is the base of the loss function used in this work.
 
 ## Fully Convolutional Network
@@ -176,5 +188,5 @@ information.
 
 Deconvolution, sometimes also called Transposed Convolution or fractionally strided convolution, is such a technique to perform upsampling of an image with learnable parameters[@fsc].
 On a high level, transposed convolution is exactly the opposite process of a normal convolution i.e., the input volume is a low resolution image and the output volume is a high-resolution image.
-A normal convolution can be described as a matrix multiplication of input image and filter to produce the output image. 
+A normal convolution can be described as a matrix multiplication of input image and filter to produce the output image.
 In short, by taking the transpose of the filter matrix, it is possible to reverse the convolution process, hence the name transposed convolution.
