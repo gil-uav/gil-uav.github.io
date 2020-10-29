@@ -480,13 +480,24 @@ Rectified Linear Unit
 The Rectified Linear Unit(ReLu) is a non-linear activation function that is used in multi-layer neural networks or deep neural networks. For input values of <span class="math inline"><em>x</em></span> the function can be represented as:
 </p>
 <p>
-<span id="eq:relu" class="eqnos"><span class="math inline"><em>f</em>(<em>x</em>) = <em>m</em><em>a</em><em>x</em>(0, <em>x</em>)</span><span class="eqnos-number">(1)</span></span>
+<span id="eq:relu" class="eqnos"><span class="math display"><span class="math display">$$
+\begin{align*}
+f(x) = max(0,x)
+\end{align*}
+$$</span></span><span class="eqnos-number">(1)</span></span>
 </p>
 <p>
 According to equation <a href="#eq:relu">1</a>, the output of ReLu is the maximum value between zero and the input value. The output is equal to zero when the input value is negative and the input value when the input is positive. I.e
 </p>
 <p>
-<span id="eq:relu2" class="eqnos"><span class="math inline"><span class="math inline">$f(x) = \begin{cases} 0, \text{if}\ x &amp;lt; 1 \\ x, \text{if}\ x \geq 0 \end{cases}$</span></span><span class="eqnos-number">(2)</span></span>
+<span id="eq:relu2" class="eqnos"><span class="math display"><span class="math display">$$
+\begin{align*}
+f(x) = \begin{cases}
+x, \mbox{if } x \geq 0\\
+0, \mbox{otherwise}
+\end{cases}
+\end{align*}
+$$</span></span><span class="eqnos-number">(2)</span></span>
 </p>
 <p>
 Traditionally, some prevalent non-linear activation functions, like sigmoid functions and hyperbolic tangent, have been used in neural networks to get activation values for each neuron. However, the ReLu function has become a more popular activation function because it can accelerate the training speed of deep neural networks compared to traditional activation functions. This because the derivative of ReLu is 1 for positive input. Owing to a constant, deep neural networks do not need to take additional time for computing error terms during the training phase.
@@ -549,7 +560,11 @@ A common loss function is the cross-entropy loss function. Cross-entropy loss, o
 where <span class="math inline"><em>M</em></span> is the number of classes, <span class="math inline"><em>y</em></span> is the binary indicator if class label <span class="math inline"><em>c</em></span> is the correct prediction for the observation <span class="math inline"><em>o</em></span> and <span class="math inline"><em>p</em></span> is the predicted probability observation <span class="math inline"><em>o</em></span> With binary classification, where the number of classes <span class="math inline"><em>M</em></span> equals 2, the cross-entropy can be calculated as:
 </p>
 <p>
-<span id="eq:cross_entropy2" class="eqnos"><span class="math display"> − (<em>y</em>log (<em>p</em>) + 1 − <em>y</em>)log (1 − <em>p</em>))</span><span class="eqnos-number">(5)</span></span>
+<span id="eq:cross_entropy2" class="eqnos"><span class="math display"><span class="math display">$$
+\begin{align*}
+-(y\log(p)+1-y)\log(1-p))
+\end{align*}
+$$</span></span><span class="eqnos-number">(5)</span></span>
 </p>
 <p>
 If <span class="math inline"><em>M</em> &gt; 2</span> we calculate a separate loss for each class label per observation and sum the result.

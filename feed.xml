@@ -5,8 +5,8 @@
     <description>GPS-Independent Localization for UAVs</description>
     <link>https://gil-uav.github.io//</link>
     <atom:link href="https://gil-uav.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 29 Oct 2020 23:30:48 +0100</pubDate>
-    <lastBuildDate>Thu, 29 Oct 2020 23:30:48 +0100</lastBuildDate>
+    <pubDate>Fri, 30 Oct 2020 00:08:06 +0100</pubDate>
+    <lastBuildDate>Fri, 30 Oct 2020 00:08:06 +0100</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -119,9 +119,20 @@ Max pooling is done in part to help over-fitting by providing an abstracted form
 The idea is to retain the information which best describes the context of the image, from each region and throw away the information which is not important.
 Rectified Linear Unit
 The Rectified Linear Unit(ReLu) is a non-linear activation function that is used in multi-layer neural networks or deep neural networks. For input values of x the function can be represented as:
-f(x) = max(0, x)(1) 
+$$
+\begin{align*}
+f(x) = max(0,x)
+\end{align*}
+$$(1) 
 According to equation 1, the output of ReLu is the maximum value between zero and the input value. The output is equal to zero when the input value is negative and the input value when the input is positive. I.e
-$f(x) = \begin{cases}  0, \text{if}\ x &amp;lt; 1 \\  x, \text{if}\ x \geq 0  \end{cases}$(2) 
+$$
+\begin{align*}
+f(x) = \begin{cases}
+x, \mbox{if } x \geq 0\\
+0, \mbox{otherwise}
+\end{cases}
+\end{align*}
+$$(2) 
 Traditionally, some prevalent non-linear activation functions, like sigmoid functions and hyperbolic tangent, have been used in neural networks to get activation values for each neuron. However, the ReLu function has become a more popular activation function because it can accelerate the training speed of deep neural networks compared to traditional activation functions. This because the derivative of ReLu is 1 for positive input. Owing to a constant, deep neural networks do not need to take additional time for computing error terms during the training phase.
 The ReLu function does not trigger the vanishing gradient problem when the number of layers grows. This is because the function does not have an asymptotic upper and lower bound. Thus, the earliest layer (the first hidden layer) can receive the errors coming from the last layers to adjust all weights between layers. By contrast, a traditional activation function like sigmoid is restricted between 0 and 1, so the errors become small for the first hidden layer. The mentioned scenario will lead to a poorly trained neural network.
 Normalization Layer
@@ -143,7 +154,11 @@ The loss function is used to determine the error or in other words the loss, bet
 A common loss function is the cross-entropy loss function. Cross-entropy loss, or log loss, measures the performance of a classification model whose output is a probability value between 0 and 1. The function can be described as:
 $$ -\sum^M_{c=1}y_{o,c}\log(p_{o,c}) $$(4) 
 where M is the number of classes, y is the binary indicator if class label c is the correct prediction for the observation o and p is the predicted probability observation o With binary classification, where the number of classes M equals 2, the cross-entropy can be calculated as:
- − (ylog (p) + 1 − y)log (1 − p))(5) 
+$$
+\begin{align*}
+-(y\log(p)+1-y)\log(1-p))
+\end{align*}
+$$(5) 
 If M &amp;gt; 2 we calculate a separate loss for each class label per observation and sum the result.
 In practice, this gives a high loss value to wrong predictions and a 0 loss value to the right predictions. This is the behavior that is wanted in a loss function since when minimized it will give better predictions. This is the base of the loss function used in this work.
 Fully Convolutional Network
