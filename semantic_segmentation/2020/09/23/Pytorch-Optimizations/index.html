@@ -174,13 +174,13 @@
 	
 	<hr class="style-one">
 	
-	<a href="/semantic_segmentation/2020/10/28/Dataset-Generation/"><h2 class="post-title"> Dataset generation</h2></a>
+	<a href="/semantic_segmentation/2020/10/30/Dataset-Generation-Pt2/"><h2 class="post-title"> Dataset generation pt. 2</h2></a>
 	
 	
-		<h4 class="post-subtitle">Some thoughts and status around the dataset.</h4>
+		<h4 class="post-subtitle">A short update on the orthophoto map order.</h4>
 	
 	
-	<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by Vegard Bergsvik Øvstegård on October 28, 2020</p>
+	<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by Vegard Bergsvik Øvstegård on October 30, 2020</p>
 	
 	<div class="notepad-index-post-tags" style="">
 	<a href="/search/index.html#post" title="Other posts from the Post tag">Post</a>&nbsp;<a href="/search/index.html#machine-learning" title="Other posts from the Machine-learning tag">Machine-learning</a>
@@ -239,13 +239,13 @@
 		
 		<hr class="style-one">
 		
-		<a href="/semantic_segmentation/2020/10/25/Semantic-Segmentation-Background/"><h2 class="post-title"> Semantic Segmentation Background</h2></a>
+		<a href="/semantic_segmentation/2020/10/28/Dataset-Generation/"><h2 class="post-title"> Dataset generation</h2></a>
 		
 		
-			<h4 class="post-subtitle">This post contains an overview and description of former work and terminology related to Semantic Segmentation.</h4>
+			<h4 class="post-subtitle">Some thoughts and status around the dataset.</h4>
 		
 		
-		<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by Vegard Bergsvik Øvstegård on October 25, 2020</p>
+		<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by Vegard Bergsvik Øvstegård on October 28, 2020</p>
 		
 		<div class="notepad-index-post-tags" style="">
 		<a href="/search/index.html#post" title="Other posts from the Post tag">Post</a>&nbsp;<a href="/search/index.html#machine-learning" title="Other posts from the Machine-learning tag">Machine-learning</a>
@@ -261,13 +261,13 @@
 		
 		<hr class="style-one">
 		
-		<a href="/semantic_segmentation/2020/10/25/Semantic-Segmentation-Background/"><h2 class="post-title"> Semantic Segmentation Background</h2></a>
+		<a href="/semantic_segmentation/2020/10/28/Dataset-Generation/"><h2 class="post-title"> Dataset generation</h2></a>
 		
 		
-			<h4 class="post-subtitle">This post contains an overview and description of former work and terminology related to Semantic Segmentation.</h4>
+			<h4 class="post-subtitle">Some thoughts and status around the dataset.</h4>
 		
 		
-		<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by Vegard Bergsvik Øvstegård on October 25, 2020</p>
+		<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by Vegard Bergsvik Øvstegård on October 28, 2020</p>
 		
 		<div class="notepad-index-post-tags" style="">
 		<a href="/search/index.html#post" title="Other posts from the Post tag">Post</a>&nbsp;<a href="/search/index.html#machine-learning" title="Other posts from the Machine-learning tag">Machine-learning</a>
@@ -276,6 +276,24 @@
 		
 		
 		
+	
+	
+
+	
+	 
+	
+	
+			
+		
+			
+		
+	
+	
+			
+		
+			
+		
+	
 	
 	
 
@@ -393,25 +411,25 @@ PyTorch DataLoader supports asynchronous data loading/augmentation. The defaults
 Default settings:
 </p>
 <div id="cb1" class="sourceCode">
-<pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>DataLoader(dataset, batch_size<span class="op">=</span><span class="dv">1</span>, shuffle<span class="op">=</span><span class="va">False</span>, sampler<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>           batch_sampler<span class="op">=</span><span class="va">None</span>, num_workers<span class="op">=</span><span class="dv">0</span>, collate_fn<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>           pin_memory<span class="op">=</span><span class="va">False</span>, drop_last<span class="op">=</span><span class="va">False</span>, timeout<span class="op">=</span><span class="dv">0</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>       worker_init_fn<span class="op">=</span><span class="va">None</span>)</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">DataLoader(dataset, batch_size<span class="op">=</span><span class="dv">1</span>, shuffle<span class="op">=</span><span class="va">False</span>, sampler<span class="op">=</span><span class="va">None</span>,</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">           batch_sampler<span class="op">=</span><span class="va">None</span>, num_workers<span class="op">=</span><span class="dv">0</span>, collate_fn<span class="op">=</span><span class="va">None</span>,</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">           pin_memory<span class="op">=</span><span class="va">False</span>, drop_last<span class="op">=</span><span class="va">False</span>, timeout<span class="op">=</span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">       worker_init_fn<span class="op">=</span><span class="va">None</span>)</a></code></pre>
 </div>
 <p>
 This is faster.
 </p>
 <div id="cb2" class="sourceCode">
-<pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>DataLoader(dataset, batch_size<span class="op">=</span><span class="dv">1</span>, shuffle<span class="op">=</span><span class="va">False</span>, sampler<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>           batch_sampler<span class="op">=</span><span class="va">None</span>, num_workers<span class="op">=</span><span class="dv">8</span>, collate_fn<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>           pin_memory<span class="op">=</span><span class="va">True</span>, drop_last<span class="op">=</span><span class="va">False</span>, timeout<span class="op">=</span><span class="dv">0</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>       worker_init_fn<span class="op">=</span><span class="va">None</span>)</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">DataLoader(dataset, batch_size<span class="op">=</span><span class="dv">1</span>, shuffle<span class="op">=</span><span class="va">False</span>, sampler<span class="op">=</span><span class="va">None</span>,</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">           batch_sampler<span class="op">=</span><span class="va">None</span>, num_workers<span class="op">=</span><span class="dv">8</span>, collate_fn<span class="op">=</span><span class="va">None</span>,</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">           pin_memory<span class="op">=</span><span class="va">True</span>, drop_last<span class="op">=</span><span class="va">False</span>, timeout<span class="op">=</span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">       worker_init_fn<span class="op">=</span><span class="va">None</span>)</a></code></pre>
 </div>
 <p>
 You know how sometimes your GPU memory shows that it’s full but you’re pretty sure that your model isn’t using that much? That overhead is called pinned memory. ie: this memory has been reserved as a type of “working allocation.” When you enable pinned_memory in a DataLoader it automatically puts the fetched data Tensors in pinned memory, and enables faster data transfer to CUDA-enabled GPUs.
 </p>
 <figure>
-<img src="/img/pinned_memory.png" alt="" />
+<img src="/img/pinned_memory.png" alt="Pinned memory" />
 <figcaption>
 Pinned memory
 </figcaption>
@@ -423,7 +441,7 @@ Enable cuDNN autotuner
 For convolutional neural networks, enable cuDNN autotuner by setting:
 </p>
 <div id="cb3" class="sourceCode">
-<pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>torch.backends.cudnn.benchmark <span class="op">=</span> <span class="va">True</span></span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">torch.backends.cudnn.benchmark <span class="op">=</span> <span class="va">True</span></a></code></pre>
 </div>
 <p>
 cuDNN supports many algorithms to compute convolution, and the autotuner runs a short benchmark and selects the algorithm with the best performance.
@@ -441,7 +459,7 @@ When increasing batch size: * Tune the learning rate * Add learning rate warmup 
 Disable bias for convolutions directly followed by a batch norm.
 </h1>
 <figure>
-<img src="/img/bias_conv.png" alt="" />
+<img src="/img/bias_conv.png" alt="Disable bias" />
 <figcaption>
 Disable bias
 </figcaption>
@@ -453,14 +471,14 @@ Use parameter.grad = None instead of model.zero_grad()
 Not this:
 </p>
 <div id="cb4" class="sourceCode">
-<pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>model.zero_grad()</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">model.zero_grad()</a></code></pre>
 </div>
 <p>
 But this!
 </p>
 <div id="cb5" class="sourceCode">
-<pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="cf">for</span> param <span class="kw">in</span> model.parameters():</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>    param.grad <span class="op">=</span> <span class="va">None</span></span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="cf">for</span> param <span class="kw">in</span> model.parameters():</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    param.grad <span class="op">=</span> <span class="va">None</span></a></code></pre>
 </div>
 <p>
 The former executes memset for every parameter in the model, and backward pass updates gradients with “+=” operator (read + write). This is a slow and naive implementation of PyTorch, will hopefully be fixed. The latter doesn’t execute memset for every parameter, memory is zeroed-out by the allocator in a more efficient way and backward pass updates gradients with “=” operator (write).
@@ -487,16 +505,16 @@ PyTorch JIT can fuse pointwise operations into a single CUDA kernel. Unfused poi
 I.e from this:
 </p>
 <div id="cb6" class="sourceCode">
-<pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">def</span> gelu(x):</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>    <span class="cf">return</span> x <span class="op">*</span> <span class="fl">0.5</span> <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">+</span> torch.erf(x <span class="op">/</span> <span class="fl">1.41421</span>))</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">def</span> gelu(x):</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">    <span class="cf">return</span> x <span class="op">*</span> <span class="fl">0.5</span> <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">+</span> torch.erf(x <span class="op">/</span> <span class="fl">1.41421</span>))</a></code></pre>
 </div>
 <p>
 to this:
 </p>
 <div id="cb7" class="sourceCode">
-<pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="at">@torch.jit.script</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="kw">def</span> fused_gelu(x):</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>    <span class="cf">return</span> x <span class="op">*</span> <span class="fl">0.5</span> <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">+</span> torch.erf(x <span class="op">/</span> <span class="fl">1.41421</span>))</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="at">@torch.jit.script</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">def</span> fused_gelu(x):</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">    <span class="cf">return</span> x <span class="op">*</span> <span class="fl">0.5</span> <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">+</span> torch.erf(x <span class="op">/</span> <span class="fl">1.41421</span>))</a></code></pre>
 </div>
 <h1 id="construct-tensors-directly-on-gpus">
 Construct tensors directly on GPUs
@@ -505,13 +523,13 @@ Construct tensors directly on GPUs
 Dont do this:
 </p>
 <div id="cb8" class="sourceCode">
-<pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>t <span class="op">=</span> tensor.rand(<span class="dv">2</span>,<span class="dv">2</span>).cuda()</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1">t <span class="op">=</span> tensor.rand(<span class="dv">2</span>,<span class="dv">2</span>).cuda()</a></code></pre>
 </div>
 <p>
 Instead, create the tensor directly on the device:
 </p>
 <div id="cb9" class="sourceCode">
-<pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>t <span class="op">=</span> tensor.rand(<span class="dv">2</span>,<span class="dv">2</span>, device<span class="op">=</span>torch.device(<span class="st">&#39;cuda:0&#39;</span>))</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1">t <span class="op">=</span> tensor.rand(<span class="dv">2</span>,<span class="dv">2</span>, device<span class="op">=</span>torch.device(<span class="st">&#39;cuda:0&#39;</span>))</a></code></pre>
 </div>
 <p>
 Its faster!
