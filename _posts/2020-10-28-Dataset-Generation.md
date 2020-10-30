@@ -51,7 +51,8 @@ and private drones is a maximum of 120 meters relative to the ground. Given the 
 this results in a horizontal viewing field of approximately 57m by 32m on a 16:9 aspect ratio, and
 a Ground Sampling Distance (GSD) 2.95cm:
 
-$$ GSD = \frac{S_w \times H}{F_r \times im_W} = 2.95cm $$
+$$ GSD_w = \frac{S_w \times H}{F_r \times im_W} = 2.95cm $$
+
 $$
 \begin{align*}
 D_w = GSD \times im_W = 57m
