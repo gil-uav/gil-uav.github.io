@@ -5,8 +5,8 @@
     <description>GPS-Independent Localization for UAVs</description>
     <link>https://gil-uav.github.io//</link>
     <atom:link href="https://gil-uav.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 30 Oct 2020 02:24:21 +0100</pubDate>
-    <lastBuildDate>Fri, 30 Oct 2020 02:24:21 +0100</lastBuildDate>
+    <pubDate>Fri, 30 Oct 2020 02:27:54 +0100</pubDate>
+    <lastBuildDate>Fri, 30 Oct 2020 02:27:54 +0100</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -62,12 +62,15 @@ GSD = 25cm
 
 GSD = 44cm
 
-Previous work such as Sahu et al. [1] used GSD as high as 100cm with decent results, on a very similar task as this. On the other hand Horwath et al ???. mentions improvements in accuracy for high resolution images in electron microscopy images, but not without challenges. The aforementioned task is although not directly transferable to segmenting buildings, as they were looking for very small particles with a radius of circa 4-6 pixels in a 1024x1024 image. E.g a small shed with a size of 1m2 would take up about 20x20 pixels, and most static buildings are bigger than 1m2.
+Previous work such as Sahu et al. [1] used GSD as high as 100cm with decent results, on a very similar task as this. On the other hand Horwath et al [2]. mentions improvements in accuracy for high resolution images in electron microscopy images, but not without challenges. The aforementioned task is although not directly transferable to segmenting buildings, as they were looking for very small particles with a radius of circa 4-6 pixels in a 1024x1024 image. E.g a small shed with a size of 1m2 would take up about 20x20 pixels, and most static buildings are bigger than 1m2.
 Another point is that the network will run on a drone with limited computational resources. Floating-point operations are not free and unlimited. For this reason images with a GSD of 20 will suffice as a start, and if need be, access to higher resolution images is possible. As previously mentioned, images captured with a drone might also be added due to the lacking environmental variance that the images from Kartverket have. These will have almost the same GSD calculated above as the drone that will be used is a DJI Mavic Pro.
 50 Gb of raster maps have been ordered, and the dataset will be adapted and updated continuously until adequate results on real drone photos have been produced by a potential network. With this in mind, the test-set will mostly contain drone footage as this is what the network will process when the framework is in production. The first version of the dataset is hopefully finished by the end of next week. The complete version, however, will not be ready until enough environmental variance is captured, and to no one’s surprise, time nor weather can be controlled.
 
 
 [1] M. Sahu and A. Ohri, “VECTOR MAP GENERATION FROM AERIAL IMAGERY USING DEEP LEARNING,” ISPRS Annals of Photogrammetry, Remote Sensing and Spatial Information Sciences, vols. IV-2/W5, no. 2/W5, pp. 157–162, May 2019, doi: 10.5194/isprs-annals-IV-2-W5-157-2019.
+
+
+[2] J. P. Horwath, D. N. Zakharov, R. Mégret, and E. A. Stach, “Understanding important features of deep learning models for segmentation of high-resolution transmission electron microscopy images,” npj Computational Materials, vol. 6, no. 1, Dec. 2020, doi: 10.1038/s41524-020-00363-x.
 
 
 </description>

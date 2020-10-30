@@ -468,7 +468,7 @@ GSD = 44cm
 </figcaption>
 </figure>
 <p>
-Previous work such as Sahu et al. <span class="citation" data-cites="sahu">[1]</span> used GSD as high as 100cm with decent results, on a very similar task as this. On the other hand Horwath et al <span class="citation" data-cites="horwath"><span class="citeproc-not-found" data-reference-id="horwath"><strong>???</strong></span></span>. mentions improvements in accuracy for high resolution images in electron microscopy images, but not without challenges. The aforementioned task is although not directly transferable to segmenting buildings, as they were looking for very small particles with a radius of circa 4-6 pixels in a 1024x1024 image. E.g a small shed with a size of <span class="math inline">1<em>m</em><sup>2</sup></span> would take up about 20x20 pixels, and most static buildings are bigger than <span class="math inline">1<em>m</em><sup>2</sup></span>.
+Previous work such as Sahu et al. <span class="citation" data-cites="sahu">[1]</span> used GSD as high as 100cm with decent results, on a very similar task as this. On the other hand Horwath et al <span class="citation" data-cites="horwath">[2]</span>. mentions improvements in accuracy for high resolution images in electron microscopy images, but not without challenges. The aforementioned task is although not directly transferable to segmenting buildings, as they were looking for very small particles with a radius of circa 4-6 pixels in a 1024x1024 image. E.g a small shed with a size of <span class="math inline">1<em>m</em><sup>2</sup></span> would take up about 20x20 pixels, and most static buildings are bigger than <span class="math inline">1<em>m</em><sup>2</sup></span>.
 </p>
 <p>
 Another point is that the network will run on a drone with limited computational resources. Floating-point operations are not free and unlimited. For this reason images with a GSD of 20 will suffice as a start, and if need be, access to higher resolution images is possible. As previously mentioned, images captured with a drone might also be added due to the lacking environmental variance that the images from Kartverket have. These will have almost the same GSD calculated above as the drone that will be used is a DJI Mavic Pro.
@@ -480,6 +480,11 @@ Another point is that the network will run on a drone with limited computational
 <div id="ref-sahu">
 <p>
 [1] M. Sahu and A. Ohri, “VECTOR MAP GENERATION FROM AERIAL IMAGERY USING DEEP LEARNING,” <em>ISPRS Annals of Photogrammetry, Remote Sensing and Spatial Information Sciences</em>, vols. IV-2/W5, no. 2/W5, pp. 157–162, May 2019, doi: <a href="https://doi.org/10.5194/isprs-annals-IV-2-W5-157-2019">10.5194/isprs-annals-IV-2-W5-157-2019</a>.
+</p>
+</div>
+<div id="ref-horwath">
+<p>
+[2] J. P. Horwath, D. N. Zakharov, R. Mégret, and E. A. Stach, “Understanding important features of deep learning models for segmentation of high-resolution transmission electron microscopy images,” <em>npj Computational Materials</em>, vol. 6, no. 1, Dec. 2020, doi: <a href="https://doi.org/10.1038/s41524-020-00363-x">10.1038/s41524-020-00363-x</a>.
 </p>
 </div>
 </div>
