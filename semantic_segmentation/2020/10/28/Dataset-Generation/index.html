@@ -414,7 +414,7 @@ Background
 In machine learning, a data set is a collection of data. In this work, it is a collection of sets of 2 images, <strong>x</strong>, and <strong>y</strong>. Where <strong>x</strong>, the input image, is an <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/orthophoto">orthophoto</a> while the other, <strong>y</strong>, is the ground truth of buildings and other classes.
 </p>
 <figure>
-<img src="/img/set_example.png" alt="Example of a set with x(left) and y(right)" />
+<img src="/img/set_example.png" alt="" />
 <figcaption>
 Example of a set with <strong>x</strong>(left) and <strong>y</strong>(right)
 </figcaption>
@@ -471,18 +471,18 @@ Ground sampling distance and field of view
 As the Norwegian Civil Aviation Authority states, the max flight altitude in Norway for uncertified and private drones is a maximum of 120 meters relative to the ground. Given the specifications on a typical drone such as the <a href="https://www.dji.com/no/mavic-2/info">DJI Mavic 2 Pro</a>, this results in a horizontal viewing field of approximately 57m by 32m on a 16:9 aspect ratio, and a Ground Sampling Distance (GSD) 2.95cm:
 </p>
 <p>
-<br /><span class="math display"><br /><span class="math display">$$ GSD_w = \frac{S_w \times H}{F_r \times im_W} = 2.95cm $$</span><br /></span><br />
+<span class="math display"><span class="math display">$$ GSD_w = \frac{S_w \times H}{F_r \times im_W} = 2.95cm $$</span></span>
 </p>
 <p>
-<br /><span class="math display"><br /><span class="math display">$$
+<span class="math display"><span class="math display">$$
 \begin{align*}
 D_w = GSD \times im_W = 57m
 \end{align*}
-$$</span><br /></span><br /> <br /><span class="math display"><br /><span class="math display">$$
+$$</span></span> <span class="math display"><span class="math display">$$
 \begin{align*}
 D_h = GSD \times im_H = 32m
 \end{align*}
-$$</span><br /></span><br />
+$$</span></span>
 </p>
 <ul>
 <li>
@@ -511,19 +511,19 @@ $$</span><br /></span><br />
 These specifications are somewhat important as they describe what the network will work on and most likely should train on. Ground sampling distance (GSD) is the “real-life” spatial distance between each pixel center. Some orthophotos from Kartverket can be downloaded with a GSD down to 4cm, and with a 4:3 aspect ration on full HD (1440px by 1080px), gives us a GSD of about 3.93. However, with this spatial resolution and an area of 3.2km by 2.4km, it would result in an uncompressed TIFF file of about 14Gb according to Kartverket. As the objective is to segment buildings, it seems that this high-resolution is not necessary. Then again, this work is research and such inquiries must be sought out. Below are two images comparing the GSD of 25cm and 44cm.
 </p>
 <figure>
-<img src="/img/bo25.jpg" alt="GSD = 25cm" />
+<img src="/img/bo25.jpg" alt="" />
 <figcaption>
 GSD = 25cm
 </figcaption>
 </figure>
 <figure>
-<img src="/img/bo44.jpg" alt="GSD = 44cm" />
+<img src="/img/bo44.jpg" alt="" />
 <figcaption>
 GSD = 44cm
 </figcaption>
 </figure>
 <p>
-Previous work such as Sahu et al. <span class="citation" data-cites="sahu">[1]</span> used GSD as high as 100cm with decent results, on a very similar task as this. On the other hand Horwath et al <span class="citation" data-cites="horwath">[2]</span>. mentions improvements in accuracy for high resolution images in electron microscopy images, but not without challenges. The aforementioned task is although not directly transferable to segmenting buildings, as they were looking for very small particles with a radius of circa 4-6 pixels in a 1024x1024 image. E.g a small shed with a size of <span class="math inline">1<em>m</em><sup>2</sup></span> would take up about 20x20 pixels, and most static buildings are bigger than <span class="math inline">1<em>m</em><sup>2</sup></span>.
+Previous work such as Sahu et al. <span class="citation" data-cites="sahu">[1]</span> used GSD as high as 100cm with decent results, on a very similar task as this. On the other hand Horwath et al <span class="citation" data-cites="horwath">[2]</span>. mentions improvements in accuracy for high resolution images in electron microscopy images, but not without challenges. The aforementioned task is although not directly transferable to segmenting buildings, as they were looking for very small particles with a radius of circa 4-6 pixels in a 1024x1024 image. E.g a small shed with a size of <span class="math inline">1<em>m</em><sup>2</sup></span> would take up about 20x20 pixels, and most static buildings are bigger than <span class="math inline">1<em>m</em><sup>2</sup></span>.
 </p>
 <p>
 Another point is that the network will run on a drone with limited computational resources. Floating-point operations are not free and unlimited. For this reason images with a GSD of 20 will suffice as a start, and if need be, access to higher resolution images is possible. As previously mentioned, images captured with a drone might also be added due to the lacking environmental variance that the images from Kartverket have. These will have almost the same GSD calculated above as the drone that will be used is a DJI Mavic Pro.
@@ -531,7 +531,7 @@ Another point is that the network will run on a drone with limited computational
 <p>
 50 Gb of raster maps have been ordered, and the dataset will be adapted and updated continuously until adequate results on real drone photos have been produced by a potential network. With this in mind, the test-set will mostly contain drone footage as this is what the network will process when the framework is in production. The first version of the dataset is hopefully finished by the end of next week. The complete version, however, will not be ready until enough environmental variance is captured, and to no one’s surprise, time nor weather can be controlled.
 </p>
-<div id="refs" class="references">
+<div id="refs" class="references" role="doc-bibliography" role="doc-bibliography">
 <div id="ref-sahu">
 <p>
 [1] M. Sahu and A. Ohri, “VECTOR MAP GENERATION FROM AERIAL IMAGERY USING DEEP LEARNING,” <em>ISPRS Annals of Photogrammetry, Remote Sensing and Spatial Information Sciences</em>, vols. IV-2/W5, no. 2/W5, pp. 157–162, May 2019, doi: <a href="https://doi.org/10.5194/isprs-annals-IV-2-W5-157-2019">10.5194/isprs-annals-IV-2-W5-157-2019</a>.

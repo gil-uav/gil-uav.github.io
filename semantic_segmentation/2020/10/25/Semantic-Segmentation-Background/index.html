@@ -411,7 +411,7 @@ img:active{
 Semantic Segmentation
 </h1>
 <figure>
-<img src="/img/unet_prelim1.png" alt="Example of Semantic images segmentation where buildings have been segmented(white)." />
+<img src="/img/unet_prelim1.png" alt="" />
 <figcaption>
 Example of Semantic images segmentation where buildings have been segmented(white).
 </figcaption>
@@ -429,7 +429,7 @@ A <a href="https://www.sciencedirect.com/topics/computer-science/convolutional-n
 To some extent, they are very similar to regular neural networks that use <a href="https://www.sciencedirect.com/topics/computer-science/multilayer-perceptron">Multilayer perceptrons</a>(MLPs), both are made up of learnable weights. But contrary to MLPs, CNNs have an architecture that explicitly assumes its inputs have structures like images. This allows encoding said property into the architecture, by sharing the weights for each location in the image and having neurons respond only locally. I.e a CNN is composed of convolutional layers without any fully-connected layers or MLPs usually found at the end. This provides efficiency for the forward pass implementation, and most importantly reduces the number of parameters in the network compared to a fully connected network(FCN). E.g if a 3-channel image of size 256 by 256 pixels were to be feed into an FCN, it would require the first hidden layer to have <strong>196608</strong> input weights.
 </p>
 <figure>
-<img src="/img/cnn_example.png" alt="A common outline of a very shallow Convolutional Neural Network. One Convolutional layer and one Pooling layer. Input images are depicted as a 3D block as they often have 3 channels(RGB)." />
+<img src="/img/cnn_example.png" alt="" />
 <figcaption>
 A common outline of a very shallow Convolutional Neural Network. One Convolutional layer and one Pooling layer. Input images are depicted as a 3D block as they often have 3 channels(RGB).
 </figcaption>
@@ -462,7 +462,7 @@ Convolutional layer
 Convolutional layers are the most important building blocks used in CNNs, hence their name<span class="citation" data-cites="stanford_cnn">[1]</span>. In the context of a CNN, convolution is a linear operation that involves the multiplication of a set of weights with the input, much like a traditional neural network. Given that the technique was designed for two-dimensional input, the multiplication is performed between an array of input data and a two-dimensional array of weights, called a filter or a kernel.
 </p>
 <figure>
-<img src="/img/convolutional_layer.png" alt="The outline of a convolutional layer." />
+<img src="/img/convolutional_layer.png" alt="" />
 <figcaption>
 The outline of a convolutional layer.
 </figcaption>
@@ -480,7 +480,7 @@ Pooling is a common feature imbibed into CNN architectures, and the main idea be
 The most common form is max pooling. In a relatively simple operation, a kernel of the chosen size is applied as a sliding window across each activation map individually. The largest value within the area the kernel is applied to in the activation map is then chosen as the representative for that area. The kernel size and the stride are hyperparameters chosen by the designer of the architecture. The stride tells of how many pixels the kernel jump after each application. If the stride is equal to the number of rows in the kernel, none of the areas the kernel is applied to will overlap. In a max-pool layer, this is the most common approach.
 </p>
 <figure>
-<img src="/img/max_pooling.png" alt="Example of max-pooling in a single channel activation map with kernel sizes of 2x2, and stride of 2." />
+<img src="/img/max_pooling.png" alt="" />
 <figcaption>
 Example of max-pooling in a single channel activation map with kernel sizes of 2x2, and stride of 2.
 </figcaption>
@@ -498,24 +498,24 @@ Rectified Linear Unit
 The Rectified Linear Unit(ReLu) is a non-linear activation function that is used in multi-layer neural networks or deep neural networks. For input values of <span class="math inline"><em>x</em></span> the function can be represented as:
 </p>
 <p>
-<span id="eq:relu" class="eqnos"><br /><span class="math display"><br /><span class="math display">$$
+<span id="eq:relu" class="eqnos"><span class="math display"><span class="math display">$$
 \begin{align*}
 f(x) = max(0,x)
 \end{align*}
-$$</span><br /></span><br /><span class="eqnos-number">(1)</span></span>
+$$</span></span><span class="eqnos-number">(1)</span></span>
 </p>
 <p>
 According to equation <a href="#eq:relu">1</a>, the output of ReLu is the maximum value between zero and the input value. The output is equal to zero when the input value is negative and the input value when the input is positive. I.e
 </p>
 <p>
-<span id="eq:relu2" class="eqnos"><br /><span class="math display"><br /><span class="math display">$$
+<span id="eq:relu2" class="eqnos"><span class="math display"><span class="math display">$$
 \begin{align*}
 f(x) = \begin{cases}
 x, \mbox{if } x \geq 0\\
 0, \mbox{otherwise}
 \end{cases}
 \end{align*}
-$$</span><br /></span><br /><span class="eqnos-number">(2)</span></span>
+$$</span></span><span class="eqnos-number">(2)</span></span>
 </p>
 <p>
 Traditionally, some prevalent non-linear activation functions, like sigmoid functions and hyperbolic tangent, have been used in neural networks to get activation values for each neuron. However, the ReLu function has become a more popular activation function because it can accelerate the training speed of deep neural networks compared to traditional activation functions. This because the derivative of ReLu is 1 for positive input. Owing to a constant, deep neural networks do not need to take additional time for computing error terms during the training phase.
@@ -536,10 +536,10 @@ It relieves numerous problems with properly initializing neural networks. In pra
 The method leads to faster learning rates, as normalization ensures that there are no extreme activation values. It also allows each layer to learn independently from others, and it reduces the amount of data lost between the processing layer. This improves learning accuracy throughout the network. Ioeffe and Szegezy <span class="citation" data-cites="ioffe">[4]</span> report a state of the art classification model that achieved the same accuracy but requiring 14 times fewer learning iterations to do so using BN.
 </p>
 <p>
-However, according to Wu et al. <span class="citation" data-cites="wu">[5]</span> using batch sizes (BS) less than 32 with BN results in a dramatically increased model error. There are situations that one has to settle for sizes of BS less than 32. I.e when memory consumption of each data sample is too high, with large networks or simply with lacking hardware requirements. This work does handle somewhat high-resolution images, and for this reason, alternatives to BN which work well with small batch size are needed. Group Normalization (GN), proposed by Wu et al. is one of the latest normalization methods that avoids exploiting the batch dimension, thus is independent of batch size. They report that with a ResNet-50 model trained in the ImageNet training set using 8 GPUs, a reduction in BS from 32 to 2 resulted in little to no change in error with GN contrary to an increase in error when using BN.
+However, according to Wu et al. <span class="citation" data-cites="wu">[5]</span> using batch sizes (BS) less than 32 with BN results in a dramatically increased model error. There are situations that one has to settle for sizes of BS less than 32. I.e when memory consumption of each data sample is too high, with large networks or simply with lacking hardware requirements. This work does handle somewhat high-resolution images, and for this reason, alternatives to BN which work well with small batch size are needed. Group Normalization (GN), proposed by Wu et al. is one of the latest normalization methods that avoids exploiting the batch dimension, thus is independent of batch size. They report that with a ResNet-50 model trained in the ImageNet training set using 8 GPUs, a reduction in BS from 32 to 2 resulted in little to no change in error with GN contrary to an increase in error when using BN.
 </p>
 <figure>
-<img src="/img/gn.png" alt="ImageNet classification error vs. batch sizes. [5] " />
+<img src="/img/gn.png" alt="" />
 <figcaption>
 ImageNet classification error vs. batch sizes. <span class="citation" data-cites="wu">[5]</span>
 </figcaption>
@@ -548,7 +548,7 @@ ImageNet classification error vs. batch sizes. <span class="citation" data-cite
 Softmax layer
 </h4>
 <p>
-In many neural networks, the last layer is often a softmax layer<span class="citation" data-cites="deepai_bs">[2]</span>. It is used to transform values of the class scores to numbers ranging from 0 to 1. The sum of the class-wise predictions is 1, so the layer can be interpreted as a probability spread function and looks like this: <span id="eq:softmax" class="eqnos"><br /><span class="math display"><br /><span class="math display">$$f_j(\mathbf{z}) = \frac{e^{z_j}}{\sum_ke^{z_k}}$$</span><br /></span><br /><span class="eqnos-number">(3)</span></span> where <span class="math inline"><strong>z</strong></span> is the set of scores to be squashed. As one can see, the formula takes each class score in the power of <span class="math inline"><em>e</em></span>, and divides it by the sum of the entire set in the power of <span class="math inline"><em>e</em></span>.
+In many neural networks, the last layer is often a softmax layer<span class="citation" data-cites="deepai_bs">[2]</span>. It is used to transform values of the class scores to numbers ranging from 0 to 1. The sum of the class-wise predictions is 1, so the layer can be interpreted as a probability spread function and looks like this: <span id="eq:softmax" class="eqnos"><span class="math display"><span class="math display">$$f_j(\mathbf{z}) = \frac{e^{z_j}}{\sum_ke^{z_k}}$$</span></span><span class="eqnos-number">(3)</span></span> where <span class="math inline"><strong>z</strong></span> is the set of scores to be squashed. As one can see, the formula takes each class score in the power of <span class="math inline"><em>e</em></span>, and divides it by the sum of the entire set in the power of <span class="math inline"><em>e</em></span>.
 </p>
 <h3 id="backpropagation">
 Backpropagation
@@ -572,17 +572,17 @@ The loss function is used to determine the error or in other words the loss, bet
 A common loss function is the cross-entropy loss function. Cross-entropy loss, or log loss, measures the performance of a classification model whose output is a probability value between 0 and 1. The function can be described as:
 </p>
 <p>
-<span id="eq:cross_entropy1" class="eqnos"><br /><span class="math display"><br /><span class="math display">$$ -\sum^M_{c=1}y_{o,c}\log(p_{o,c}) $$</span><br /></span><br /><span class="eqnos-number">(4)</span></span>
+<span id="eq:cross_entropy1" class="eqnos"><span class="math display"><span class="math display">$$ -\sum^M_{c=1}y_{o,c}\log(p_{o,c}) $$</span></span><span class="eqnos-number">(4)</span></span>
 </p>
 <p>
 where <span class="math inline"><em>M</em></span> is the number of classes, <span class="math inline"><em>y</em></span> is the binary indicator if class label <span class="math inline"><em>c</em></span> is the correct prediction for the observation <span class="math inline"><em>o</em></span> and <span class="math inline"><em>p</em></span> is the predicted probability observation <span class="math inline"><em>o</em></span> With binary classification, where the number of classes <span class="math inline"><em>M</em></span> equals 2, the cross-entropy can be calculated as:
 </p>
 <p>
-<span id="eq:cross_entropy2" class="eqnos"><br /><span class="math display"><br /><span class="math display">$$
+<span id="eq:cross_entropy2" class="eqnos"><span class="math display"><span class="math display">$$
 \begin{align*}
 -(y\log(p)+1-y)\log(1-p))
 \end{align*}
-$$</span><br /></span><br /><span class="eqnos-number">(5)</span></span>
+$$</span></span><span class="eqnos-number">(5)</span></span>
 </p>
 <p>
 If <span class="math inline"><em>M</em> &gt; 2</span> we calculate a separate loss for each class label per observation and sum the result.
@@ -611,25 +611,25 @@ To get an output that is expected in semantic segmentation, there is a need to c
 <p>
 Deconvolution, sometimes also called Transposed Convolution or fractionally strided convolution, is such a technique to perform upsampling of an image with learnable parameters<span class="citation" data-cites="fsc">[8]</span>. On a high level, transposed convolution is exactly the opposite process of a normal convolution i.e., the input volume is a low resolution image and the output volume is a high-resolution image. A normal convolution can be described as a matrix multiplication of input image and filter to produce the output image. In short, by taking the transpose of the filter matrix, it is possible to reverse the convolution process, hence the name transposed convolution.
 </p>
-<div id="refs" class="references">
+<div id="refs" class="references" role="doc-bibliography" role="doc-bibliography">
 <div id="ref-stanford_cnn">
 <p>
-[1] “CS231n Convolutional Neural Networks for Visual Recognition.” Accessed: Oct. 24, 2020. [Online]. Available: <a href="https://cs231n.github.io/convolutional-networks/" class="uri">https://cs231n.github.io/convolutional-networks/</a>.
+[1] “CS231n Convolutional Neural Networks for Visual Recognition.” Accessed: Oct. 24, 2020. [Online]. Available: <a href="https://cs231n.github.io/convolutional-networks/">https://cs231n.github.io/convolutional-networks/</a>.
 </p>
 </div>
 <div id="ref-deepai_bs">
 <p>
-[2] “Batch Normalization Definition | DeepAI.” Accessed: Oct. 23, 2020. [Online]. Available: <a href="https://deepai.org/machine-learning-glossary-and-terms/batch-normalization" class="uri">https://deepai.org/machine-learning-glossary-and-terms/batch-normalization</a>.
+[2] “Batch Normalization Definition | DeepAI.” Accessed: Oct. 23, 2020. [Online]. Available: <a href="https://deepai.org/machine-learning-glossary-and-terms/batch-normalization">https://deepai.org/machine-learning-glossary-and-terms/batch-normalization</a>.
 </p>
 </div>
 <div id="ref-stanford">
 <p>
-[3] “CS231n Convolutional Neural Networks for Visual Recognition.” Accessed: Oct. 23, 2020. [Online]. Available: <a href="https://cs231n.github.io/" class="uri">https://cs231n.github.io/</a>.
+[3] “CS231n Convolutional Neural Networks for Visual Recognition.” Accessed: Oct. 23, 2020. [Online]. Available: <a href="https://cs231n.github.io/">https://cs231n.github.io/</a>.
 </p>
 </div>
 <div id="ref-ioffe">
 <p>
-[4] S. Ioffe and C. Szegedy, “Batch normalization: Accelerating deep network training by reducing internal covariate shift,” in <em>32nd international conference on machine learning, icml 2015</em>, Feb. 2015, vol. 1, pp. 448–456, [Online]. Available: <a href="https://arxiv.org/abs/1502.03167v3" class="uri">https://arxiv.org/abs/1502.03167v3</a>.
+[4] S. Ioffe and C. Szegedy, “Batch normalization: Accelerating deep network training by reducing internal covariate shift,” in <em>32nd international conference on machine learning, icml 2015</em>, Feb. 2015, vol. 1, pp. 448–456, [Online]. Available: <a href="https://arxiv.org/abs/1502.03167v3">https://arxiv.org/abs/1502.03167v3</a>.
 </p>
 </div>
 <div id="ref-wu">
@@ -639,17 +639,17 @@ Deconvolution, sometimes also called Transposed Convolution or fractionally stri
 </div>
 <div id="ref-deepai_bp">
 <p>
-[6] “Backpropagation Definition | DeepAI.” Accessed: Oct. 25, 2020. [Online]. Available: <a href="https://deepai.org/machine-learning-glossary-and-terms/backpropagation" class="uri">https://deepai.org/machine-learning-glossary-and-terms/backpropagation</a>.
+[6] “Backpropagation Definition | DeepAI.” Accessed: Oct. 25, 2020. [Online]. Available: <a href="https://deepai.org/machine-learning-glossary-and-terms/backpropagation">https://deepai.org/machine-learning-glossary-and-terms/backpropagation</a>.
 </p>
 </div>
 <div id="ref-fcn">
 <p>
-[7] J. Long, E. Shelhamer, and T. Darrell, “Fully Convolutional Networks for Semantic Segmentation,” <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>, vol. 39, no. 4, pp. 640–651, Nov. 2014, [Online]. Available: <a href="http://arxiv.org/abs/1411.4038" class="uri">http://arxiv.org/abs/1411.4038</a>.
+[7] J. Long, E. Shelhamer, and T. Darrell, “Fully Convolutional Networks for Semantic Segmentation,” <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>, vol. 39, no. 4, pp. 640–651, Nov. 2014, [Online]. Available: <a href="http://arxiv.org/abs/1411.4038">http://arxiv.org/abs/1411.4038</a>.
 </p>
 </div>
 <div id="ref-fsc">
 <p>
-[8] “Fractionally-Strided-Convolution Definition | DeepAI.” Accessed: Oct. 25, 2020. [Online]. Available: <a href="https://deepai.org/machine-learning-glossary-and-terms/fractionally-strided-convolution" class="uri">https://deepai.org/machine-learning-glossary-and-terms/fractionally-strided-convolution</a>.
+[8] “Fractionally-Strided-Convolution Definition | DeepAI.” Accessed: Oct. 25, 2020. [Online]. Available: <a href="https://deepai.org/machine-learning-glossary-and-terms/fractionally-strided-convolution">https://deepai.org/machine-learning-glossary-and-terms/fractionally-strided-convolution</a>.
 </p>
 </div>
 </div>
