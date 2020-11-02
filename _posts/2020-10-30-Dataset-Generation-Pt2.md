@@ -54,11 +54,11 @@ in Norway have turfed roofing that looks very similar to the ground below.
 * Agder: Kristiansand
 * Innlandet: Hamar
 * Møre og Romsdal: Ålesund
-* Nordland: Lofoten
+* Nordland: Bodø
 * Oslo: Oslo
 * Rogarland: Stavanger
 * Vestfold og Telemark: Rjukan
 * Troms og Finnmark: Kirkenes
 * Trøndelag: Trondheim
-* Vestland: Ålesund
+* Vestland: Bergen
 * Viken: Sarpsborg
