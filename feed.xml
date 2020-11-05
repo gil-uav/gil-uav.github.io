@@ -5,9 +5,154 @@
     <description>GPS-Independent Localization for UAVs</description>
     <link>https://gil-uav.github.io//</link>
     <atom:link href="https://gil-uav.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 02 Nov 2020 18:57:10 +0100</pubDate>
-    <lastBuildDate>Mon, 02 Nov 2020 18:57:10 +0100</lastBuildDate>
+    <pubDate>Thu, 05 Nov 2020 18:44:43 +0100</pubDate>
+    <lastBuildDate>Thu, 05 Nov 2020 18:44:43 +0100</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>Dataset generation pt. 3</title>
+        <description>In order to extract the ground truth (GT) images from the vector maps recieved by Kartverket. I used QGIS, an open source geographic information system. It was how-ever quite tedious to to extract the GT images manually using the GUI. So i wrote some simple python functions to help me automate it. To put it short, the functions import all the orthophoto maps as layers to QGIS, and exports the images with the same spatial extent said orthophotos, but from the GT vector maps.
+Map issues
+I did discover some issues while inspecting the GT vector maps and the orthophotos:
+1. Rectification of orthophotos was not perfect, some buildings were not completely segmented.  2. Not all buildings where segmented. 3. Water segmentation of rivers where highly inaccurate, this is due to the riverbed naturally shifting.
+To solve issue 1, i used QGIS to adjust the GT vector layer a bit. I simply widened the vector by one meter at scale. The only way to solve issue number 2 and 3 is either with manual adjustment of the vector maps, or simply scrubbing the dataset after creation. Both tedious jobs, but they might be worth while. An idea to automate the scrubbing for issue number 2. is to train the network on the dataset, and then use the network identify and remove sets with non-segmented buildings. These fixes will be considered after the first training runs.
+QGIS helper functions:
+
+import os
+
+from qgis.core import QgsProject
+from glob import glob
+
+project = QgsProject.instance()
+root = QgsProject.instance().layerTreeRoot()
+
+
+def import_map(path_to_tif: str, root):
+    &amp;quot;&amp;quot;&amp;quot;
+    Imports a .tif file as map-layer.
+
+    Parameters
+    ----------
+    path_to_tif : str
+        Path to .tif file.
+    root
+        Project instance layer root.
+
+    Returns
+    -------
+
+    &amp;quot;&amp;quot;&amp;quot;
+    rlayer = QgsRasterLayer(
+        path_to_tif, os.path.basename(path_to_tif).replace(&amp;quot;.tif&amp;quot;, &amp;quot;&amp;quot;)
+    )
+    if not rlayer.isValid():
+        print(&amp;quot;Layer failed to load!&amp;quot;)
+    iface.addRasterLayer(path_to_tif, os.path.basename(path_to_tif).replace(&amp;quot;.tif&amp;quot;, &amp;quot;&amp;quot;))
+
+
+def import_all_maps(path):
+    &amp;quot;&amp;quot;&amp;quot;
+    Imports all .tif files to project as layers.
+    Parameters
+    ----------
+    path : str
+        Path to folder containing .tif files(Ortophotos)
+
+    Returns
+    -------
+
+    &amp;quot;&amp;quot;&amp;quot;
+    maps = [y for x in os.walk(path) for y in glob(os.path.join(x[0], &amp;quot;*.tif&amp;quot;))]
+    for m in ops:
+        import_map(m, root)
+        print(&amp;quot;{} imported.&amp;quot;.format(os.path.basename(m)))
+
+
+def get_ortophoto_layers():
+    &amp;quot;&amp;quot;&amp;quot;
+    Returns all ortophoto layers from project.
+    Returns
+    -------
+    layers : list
+        List of ortophoto layers.
+
+    &amp;quot;&amp;quot;&amp;quot;
+    layers = [
+        l
+        for l in QgsProject.instance().mapLayers().values()
+        if l.name().startswith(&amp;quot;33&amp;quot;)
+    ]
+    layers = [
+        l
+        for l in QgsProject.instance().mapLayers().values()
+        if l.type() == QgsMapLayer.RasterLayer
+    ]
+    return layers
+
+
+def export_basedata_as_img(layer, export_path: str):
+    &amp;quot;&amp;quot;&amp;quot;
+    Saves ground-truth for layer as .png file.
+
+    Parameters
+    ----------
+    export_path : str
+        Where to save the image.
+    layer
+        Orthophoto layer to produce ground-truth map from.
+
+    &amp;quot;&amp;quot;&amp;quot;
+    outfile = os.path.join(export_path, &amp;quot;{}_y.png&amp;quot;.format(layer.name()))
+
+    settings = QgsMapSettings()
+    settings.setLayers(
+        [
+            QgsProject.instance().mapLayersByName(&amp;quot;fkb_bygning_omrade&amp;quot;)[0],
+            QgsProject.instance().mapLayersByName(&amp;quot;fkb_vann_omrade&amp;quot;)[0],
+        ]
+    )
+    settings.setBackgroundColor(QColor(0, 0, 0))
+    settings.setOutputSize(QSize(layer.width(), layer.height()))
+    settings.setExtent(layer.extent())
+    render = QgsMapRendererParallelJob(settings)
+
+    def finished():
+        img = render.renderedImage()
+        img.save(outfile, &amp;quot;png&amp;quot;)
+
+    render.finished.connect(finished)
+    render.start()
+    print(&amp;quot;Ground truth image export of {} started.&amp;quot;.format(layer.name()))
+    from qgis.PyQt.QtCore import QEventLoop
+
+    loop = QEventLoop()
+    render.finished.connect(loop.quit)
+    loop.exec_()
+    print(&amp;quot;Ground truth image of {} exported to: {}&amp;quot;.format(layer.name(), outfile))
+
+
+def export_all_ground_truth_maps(export_path: str):
+    &amp;quot;&amp;quot;&amp;quot;
+    Exports ground truth images of all orthophoto layers.
+
+    export_path : str
+        Where to save the image.
+    &amp;quot;&amp;quot;&amp;quot;
+    for l in get_ortophoto_layers():
+        export_basedata_as_img(l, export_path)
+</description>
+        <pubDate>Thu, 05 Nov 2020 00:00:00 +0100</pubDate>
+        <link>https://gil-uav.github.io//semantic_segmentation/2020/11/05/Dataset-Generation-Pt3/</link>
+        <guid isPermaLink="true">https://gil-uav.github.io//semantic_segmentation/2020/11/05/Dataset-Generation-Pt3/</guid>
+        
+        <category>post</category>
+        
+        <category>machine-learning</category>
+        
+        
+        <category>semantic_segmentation</category>
+        
+      </item>
     
       <item>
         <title>Dataset generation pt. 2</title>

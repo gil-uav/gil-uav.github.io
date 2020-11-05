@@ -33,6 +33,11 @@ callback([
   {
     "text": "Dataset generation pt. 2",
     "href": "https://gil-uav.github.io//semantic_segmentation/2020/10/30/Dataset-Generation-Pt2/"
+  } ,
+
+  {
+    "text": "Dataset generation pt. 3",
+    "href": "https://gil-uav.github.io//semantic_segmentation/2020/11/05/Dataset-Generation-Pt3/"
   } 
 
 ])
