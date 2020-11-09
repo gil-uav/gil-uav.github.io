@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="GPS-Independent Localization for UAVs">
-	<meta property="og:title" content="Dataset generation" />
+	<meta property="og:title" content="The dataset v0.0.1" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://gil-uav.github.io////semantic_segmentation/2020/10/28/Dataset-Generation/" />
+<meta property="og:url" content="https://gil-uav.github.io////semantic_segmentation/2020/11/09/Dataset-V1/" />
 <meta property="og:image" content="https://gil-uav.github.io///img/home-bg-2.jpg">
 	
 	
@@ -23,9 +23,9 @@
 
 	<link rel='shortcut icon' type='image/png' href='/favicon.png' />
 
-    <title>Dataset generation - GIL-UAV</title>
+    <title>The dataset v0.0.1 - GIL-UAV</title>
 
-    <link rel="canonical" href="https://gil-uav.github.io//semantic_segmentation/2020/10/28/Dataset-Generation/">
+    <link rel="canonical" href="https://gil-uav.github.io//semantic_segmentation/2020/11/09/Dataset-V1/">
 	
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://gil-uav.github.io//css/bootstrap.min.css">
@@ -148,11 +148,11 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading" style="padding: 30px 0">
-                    <h1>Dataset generation</h1>
+                    <h1>The dataset v0.0.1</h1>
                     
-                    <h2 class="subheading">Some thoughts and status around the dataset.</h2>
+                    <h2 class="subheading">GIL segmentation dataset created with automated annotations, were the goal is to be large and diverse enough to reach satisfying localization results.</h2>
                     
-                    <span class="meta">Posted by Vegard Bergsvik Øvstegård on October 28, 2020</span>	
+                    <span class="meta">Posted by Vegard Bergsvik Øvstegård on November 9, 2020</span>	
                 </div>
             </div>
         </div>
@@ -164,54 +164,6 @@
 
 
 
-	
-	
-	
-	<div class="float-left">
-	<div class="recentpost" style="padding: 10px">
-	
-	<h4> Recently by the same author: </h4> 
-	
-	<hr class="style-one">
-	
-	<a href="/semantic_segmentation/2020/11/09/Dataset-V1/"><h2 class="post-title"> The dataset v0.0.1</h2></a>
-	
-	
-		<h4 class="post-subtitle">GIL segmentation dataset created with automated annotations, were the goal is to be large and diverse enough to reach satisfying localization results.</h4>
-	
-	
-	<p class="post-meta" style="margin-top: 5px;margin-bottom:5px; font-size: 0.8em">Posted by Vegard Bergsvik Øvstegård on November 9, 2020</p>
-	
-	<div class="notepad-index-post-tags" style="">
-	<a href="/search/index.html#post" title="Other posts from the Post tag">Post</a>&nbsp;<a href="/search/index.html#machine-learning" title="Other posts from the Machine-learning tag">Machine-learning</a>
-	</div> 
-	
-			
- 
-
-<hr class="style-one">
-
-	<img src="/img/profile.jpg" style="margin-top:0px; margin-bottom:5px; margin:auto; width:120px !important; border-radius: 50%;">
-	
-	<h3>Vegard Bergsvik Øvstegård</h3>
-	
-	<h4>Master Student at University of Oslo's Department of Informatics</h4>
-	
-	 
-	<a href="https://github.com/vegovs" title="Github"><img src="/img/icons/github-icon.png " style="height:50px; float:right; margin-bot:10px"></a>
-	
-	
-	
-	<a href="https://ovstegard.no/" title="Google Plus"><img src="/img/icons/url-icon.png " style="height:33px; float:right; margin-top:9px;  margin-right: 10px"></a>
-	
-	
-
-
-	
-	</div>
-	</div>
-	
-	
 	
 	
 		
@@ -297,6 +249,20 @@
 	
 	
 
+	
+	 
+	
+	
+			
+		
+			
+		
+	
+	
+			
+		
+			
+		
 	
 	
 	
@@ -443,142 +409,286 @@ img:active{
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<h1 id="background">
-Background
-</h1>
-<p>
-In machine learning, a data set is a collection of data. In this work, it is a collection of sets of 2 images, <strong>x</strong>, and <strong>y</strong>. Where <strong>x</strong>, the input image, is an <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/orthophoto">orthophoto</a> while the other, <strong>y</strong>, is the ground truth of buildings and other classes.
+				<p>
+As stated previously in this work, the network’s goal is to segment static objects with a high amount of robustness. With this in mind, the dataset must be large and diverse enough throughout several factors such as location, lighting ,and seasonal variance. This post is a short update on the fist iteration of such a dataset.
 </p>
-<figure>
-<img src="/img/set_example.png" alt="" />
-<figcaption>
-Example of a set with <strong>x</strong>(left) and <strong>y</strong>(right)
-</figcaption>
-</figure>
-<p>
-While there are many open-source and publicly available datasets, that contain such sets of images. It is difficult finding datasets that have the specifications needed to train such a network that this work requires. E.g lack of environmental variance, poor resolution, and different labels/ground truth.
-</p>
-<p>
-Therefore, a completely new dataset with the following requirements has to be created:
-</p>
-<ul>
-<li>
-Ground truth containing at least buildings.
-<ul>
-<li>
-Water, roads, and other static objects are welcome.
-</li>
-</ul>
-</li>
-<li>
-Environmental variance such as:
-<ul>
-<li>
-Weather
-</li>
-<li>
-Season
-</li>
-<li>
-Time
-</li>
-<li>
-Location
-</li>
-</ul>
-</li>
-<li>
-At least 1000 images per, class, weather state, season, time, and location.
-</li>
-<li>
-Good resolution and a low <a href="https://en.wikipedia.org/wiki/Ground_sample_distance">ground sample distance</a>.
-</li>
-</ul>
-<h1 id="getting-the-data">
-Getting the data
-</h1>
-<p>
-As a student at the University of Oslo, one can be provided access to some of the data not available to the public at the Norwegian Mapping Authority, <a href="https://www.kartverket.no/">Kartverket</a>. This not only provides vectorized maps working as very good ground truths for buildings and water but also some very decent orthophotos. However, they are all taken at a time when there is little to no occlusion from leaves, snow, etc, and the timing of day to provide the best possible lighting conditions for photography. I.e lacking the environmental variance needed. The aforementioned vectorized maps did also include segmented roads, but only public roads and not drive-ways to private properties as so on. Public roads and private driveways are usually both made of asphalt, and look the same. There is a suspicion that having, say only half the valid data classified as true will cause too much noise during training. None the less a very good starting point, and with tools like <a href="https://qgis.org/en/site/">QGIS</a>, it is possible to apply orthophotos collected elsewhere and maps created using <a href="https://en.wikipedia.org/wiki/Photographic_mosaic">photographic mosaic</a> and a drone.
-</p>
-<h2 id="ground-sampling-distance-and-field-of-view">
-Ground sampling distance and field of view
+<h2 id="data-acquisition">
+Data acquisition
 </h2>
 <p>
-As the Norwegian Civil Aviation Authority states, the max flight altitude in Norway for uncertified and private drones is a maximum of 120 meters relative to the ground. Given the specifications on a typical drone such as the <a href="https://www.dji.com/no/mavic-2/info">DJI Mavic 2 Pro</a>, this results in a horizontal viewing field of approximately 57m by 32m on a 16:9 aspect ratio, and a Ground Sampling Distance (GSD) 2.95cm:
+The dataset contains orthophotos covering different areas of Norway. All images came from the Norwegian Mapping Authority, Kartverket, via the University of Oslo. Pictures were taken in spatial resolution of 4 to 20 cm per pixel with three spectral bands RGB. They come from different years (2018 - 20220) and flights. The photo-flying season in Norway begins in April and lasts until the end of September. Therefore the acquired photos are characterized by a wide variety of optical conditions. They include images of different saturation, angles of sunlight, and shadows lengths. Simultaneously, the photos are from varying periods of the vegetation season. It does aid this dataset in providing robustness. However winter-landscapes and other challenging conditions are missing. To provide more diversity in the dataset, 64 map tiles were selected from various locations around all 11 different counties, spanning over <span class="math inline">200<em>k</em><em>m</em>²</span>.
+</p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 4%" />
+<col style="width: 5%" />
+<col style="width: 11%" />
+<col style="width: 10%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 7%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">
+No. sheets
+</th>
+<th style="text-align: right;">
+Scale
+</th>
+<th style="text-align: right;">
+GSD
+</th>
+<th style="text-align: right;">
+Height
+</th>
+<th style="text-align: right;">
+Width
+</th>
+<th style="text-align: right;">
+Area height
+</th>
+<th style="text-align: right;">
+Area length
+</th>
+<th style="text-align: right;">
+Total size
+</th>
+<th style="text-align: right;">
+Drone FOV
+</th>
+<th style="text-align: right;">
+Drone height
+</th>
+<th style="text-align: right;">
+No. sets
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">
+11
+</td>
+<td style="text-align: right;">
+1:1000
+</td>
+<td style="text-align: right;">
+4.0 cm
+</td>
+<td style="text-align: right;">
+20000 px
+</td>
+<td style="text-align: right;">
+15000 px
+</td>
+<td style="text-align: right;">
+800 m
+</td>
+<td style="text-align: right;">
+600 m
+</td>
+<td style="text-align: right;">
+9.9 Gb
+</td>
+<td style="text-align: right;">
+20 m
+</td>
+<td style="text-align: right;">
+43 m
+</td>
+<td style="text-align: right;">
+12441
+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">
+11
+</td>
+<td style="text-align: right;">
+1:2000
+</td>
+<td style="text-align: right;">
+8.0 cm
+</td>
+<td style="text-align: right;">
+20000 px
+</td>
+<td style="text-align: right;">
+15000 px
+</td>
+<td style="text-align: right;">
+1600 m
+</td>
+<td style="text-align: right;">
+1200 m
+</td>
+<td style="text-align: right;">
+9.9 Gb
+</td>
+<td style="text-align: right;">
+41 m
+</td>
+<td style="text-align: right;">
+87 m
+</td>
+<td style="text-align: right;">
+12441
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">
+11
+</td>
+<td style="text-align: right;">
+1:2000
+</td>
+<td style="text-align: right;">
+10.0 cm
+</td>
+<td style="text-align: right;">
+16000 px
+</td>
+<td style="text-align: right;">
+12000 px
+</td>
+<td style="text-align: right;">
+1600 m
+</td>
+<td style="text-align: right;">
+1200 m
+</td>
+<td style="text-align: right;">
+6.6 Gb
+</td>
+<td style="text-align: right;">
+51 m
+</td>
+<td style="text-align: right;">
+109 m
+</td>
+<td style="text-align: right;">
+7843
+</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">
+11
+</td>
+<td style="text-align: right;">
+1:5000
+</td>
+<td style="text-align: right;">
+12.5 cm
+</td>
+<td style="text-align: right;">
+25600 px
+</td>
+<td style="text-align: right;">
+19200 px
+</td>
+<td style="text-align: right;">
+3200 m
+</td>
+<td style="text-align: right;">
+2400 m
+</td>
+<td style="text-align: right;">
+11.0 Gb
+</td>
+<td style="text-align: right;">
+64 m
+</td>
+<td style="text-align: right;">
+136 m
+</td>
+<td style="text-align: right;">
+20350
+</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">
+11
+</td>
+<td style="text-align: right;">
+1:5000
+</td>
+<td style="text-align: right;">
+20.0 cm
+</td>
+<td style="text-align: right;">
+16000 px
+</td>
+<td style="text-align: right;">
+12000 px
+</td>
+<td style="text-align: right;">
+3200 m
+</td>
+<td style="text-align: right;">
+2400 m
+</td>
+<td style="text-align: right;">
+6.6 Gb
+</td>
+<td style="text-align: right;">
+102 m
+</td>
+<td style="text-align: right;">
+217 m
+</td>
+<td style="text-align: right;">
+7843
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+NB! Drone field of view (FOV) and height are approximations.
+</p>
+<h2 id="classes">
+Classes
+</h2>
+<p>
+As mentioned in earlier posts, the images are annotated with two classes: water bodies and buildings. Only roads longer than 50m were available in the vector maps, so they are not usable for this work.
+</p>
+<h3 id="building">
+Building
+</h3>
+<p>
+An object standing permanently in one place. RGB(255,255,255)
+</p>
+<h3 id="water-bodies">
+Water bodies
+</h3>
+<p>
+Flowing and stagnant water, including ponds and pools. RGB(127,127,127)
+</p>
+<h3 id="background">
+Background
+</h3>
+<p>
+Areas not classified into any class. It can include, e.g., fields, roads, and all objects excluded from above. RGB(0,0,0)
+</p>
+<h2 id="annotations">
+Annotations
+</h2>
+<p>
+The ground truth labels are annotated automatically using the vector maps provided by Kartverket. However, this does provide some issues as the annotations are set per GPS points, and the orthophotos are not always perfectly rectified. Also, water bodies are not always stationary and are prone to poor annotations.
 </p>
 <p>
-<span class="math display"><span class="math display">$$ GSD_w = \frac{S_w \times H}{F_r \times im_W} = 2.95cm $$</span></span>
+<strong>1.</strong> Rectification of orthophotos was not perfect; some buildings were not completely segmented. <img src="/img/rect_seg_issue.png" alt="Segmentation issue due to Rectification" /> <strong>2.</strong> Not all buildings were segmented.<img src="/img/missing_building_seg.png" alt="Missing building segmentation." /> <strong>3.</strong> Water segmentation of rivers was highly inaccurate; this is due to the riverbed naturally shifting.<img src="/img/bad_river_seg.png" alt="Inaccurate river segmentation" />
 </p>
+<h2 id="summary">
+Summary
+</h2>
 <p>
-<span class="math display"><span class="math display">$$
-\begin{align*}
-D_w = GSD \times im_W = 57m
-\end{align*}
-$$</span></span> <span class="math display"><span class="math display">$$
-\begin{align*}
-D_h = GSD \times im_H = 32m
-\end{align*}
-$$</span></span>
+After cropping sets of images and annotations from the orthophotos and annotations maps, the dataset ended up with <strong>67219</strong> samples at a size of <strong>25,1Gb</strong>. However, the dataset is not yet scraped for sets not containing useful classes, erroneous annotations, or missing orthophoto coverage. This is the first Alpha version, and the next iteration will most likely be smaller and hopefully more precise.
 </p>
-<ul>
-<li>
-<span class="math inline"><em>D</em><sub><em>w</em></sub></span> - Horizontal plane footprint width
-</li>
-<li>
-<span class="math inline"><em>D</em><sub><em>h</em></sub></span> - Horizontal plane footprint height
-</li>
-<li>
-<span class="math inline"><em>S</em><sub><em>w</em></sub> = 13.2</span> - Sensor width(mm)
-</li>
-<li>
-<span class="math inline"><em>H</em> = 120</span> - Height(m)
-</li>
-<li>
-<span class="math inline"><em>F</em><sub><em>r</em></sub> = 28</span> - Focal length(mm)
-</li>
-<li>
-<span class="math inline"><em>i</em><em>m</em><sub><em>W</em></sub> = 1920</span> - Image width(px)
-</li>
-<li>
-<span class="math inline"><em>i</em><em>m</em><sub><em>H</em></sub> = 1080</span> - Image height(px)
-</li>
-</ul>
-<p>
-These specifications are somewhat important as they describe what the network will work on and most likely should train on. Ground sampling distance (GSD) is the “real-life” spatial distance between each pixel center. Some orthophotos from Kartverket can be downloaded with a GSD down to 4cm, and with a 4:3 aspect ration on full HD (1440px by 1080px), gives us a GSD of about 3.93. However, with this spatial resolution and an area of 3.2km by 2.4km, it would result in an uncompressed TIFF file of about 14Gb according to Kartverket. As the objective is to segment buildings, it seems that this high-resolution is not necessary. Then again, this work is research and such inquiries must be sought out. Below are two images comparing the GSD of 25cm and 44cm.
-</p>
-<figure>
-<img src="/img/bo25.jpg" alt="" />
-<figcaption>
-GSD = 25cm
-</figcaption>
-</figure>
-<figure>
-<img src="/img/bo44.jpg" alt="" />
-<figcaption>
-GSD = 44cm
-</figcaption>
-</figure>
-<p>
-Previous work such as Sahu et al. <span class="citation" data-cites="sahu">[1]</span> used GSD as high as 100cm with decent results, on a very similar task as this. On the other hand Horwath et al <span class="citation" data-cites="horwath">[2]</span>. mentions improvements in accuracy for high resolution images in electron microscopy images, but not without challenges. The aforementioned task is although not directly transferable to segmenting buildings, as they were looking for very small particles with a radius of circa 4-6 pixels in a 1024x1024 image. E.g a small shed with a size of <span class="math inline">1<em>m</em><sup>2</sup></span> would take up about 20x20 pixels, and most static buildings are bigger than <span class="math inline">1<em>m</em><sup>2</sup></span>.
-</p>
-<p>
-Another point is that the network will run on a drone with limited computational resources. Floating-point operations are not free and unlimited. For this reason images with a GSD of 20 will suffice as a start, and if need be, access to higher resolution images is possible. As previously mentioned, images captured with a drone might also be added due to the lacking environmental variance that the images from Kartverket have. These will have almost the same GSD calculated above as the drone that will be used is a DJI Mavic Pro.
-</p>
-<p>
-50 Gb of raster maps have been ordered, and the dataset will be adapted and updated continuously until adequate results on real drone photos have been produced by a potential network. With this in mind, the test-set will mostly contain drone footage as this is what the network will process when the framework is in production. The first version of the dataset is hopefully finished by the end of next week. The complete version, however, will not be ready until enough environmental variance is captured, and to no one’s surprise, time nor weather can be controlled.
-</p>
-<div id="refs" class="references" role="doc-bibliography" role="doc-bibliography">
-<div id="ref-sahu">
-<p>
-[1] M. Sahu and A. Ohri, “VECTOR MAP GENERATION FROM AERIAL IMAGERY USING DEEP LEARNING,” <em>ISPRS Annals of Photogrammetry, Remote Sensing and Spatial Information Sciences</em>, vols. IV-2/W5, no. 2/W5, pp. 157–162, May 2019, doi: <a href="https://doi.org/10.5194/isprs-annals-IV-2-W5-157-2019">10.5194/isprs-annals-IV-2-W5-157-2019</a>.
-</p>
-</div>
-<div id="ref-horwath">
-<p>
-[2] J. P. Horwath, D. N. Zakharov, R. Mégret, and E. A. Stach, “Understanding important features of deep learning models for segmentation of high-resolution transmission electron microscopy images,” <em>npj Computational Materials</em>, vol. 6, no. 1, Dec. 2020, doi: <a href="https://doi.org/10.1038/s41524-020-00363-x">10.1038/s41524-020-00363-x</a>.
-</p>
-</div>
-</div>
 
 
                 <hr>
@@ -586,13 +696,9 @@ Another point is that the network will run on a drone with limited computational
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/semantic_segmentation/2020/10/25/Semantic-Segmentation-Background/" data-toggle="tooltip" data-placement="top" title="Semantic Segmentation Background">&larr; Previous Post</a>
+                        <a href="/semantic_segmentation/2020/11/05/Dataset-Generation-Pt3/" data-toggle="tooltip" data-placement="top" title="Dataset generation pt. 3">&larr; Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/semantic_segmentation/2020/10/30/Dataset-Generation-Pt2/" data-toggle="tooltip" data-placement="top" title="Dataset generation pt. 2">Next Post &rarr;</a>
-                    </li>
                     
                 </ul>
 
