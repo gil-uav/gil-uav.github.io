@@ -1,3 +1,19 @@
+## 2.2.0 (2020-11-11)
+
+### Feat
+
+- **_posts**: new post on the updated dataset
+- **posts**: added dataset v1 post
+- **_posts**: qgis post added
+- **_posts**: new post on the order of map sheets
+- **_posts**: updated dataset post
+
+### Fix
+
+- **_posts**: edit to datagen post 2
+- **library.bib**: updated references
+- **_posts**: small fix to an equation in the seg post
+
 ## 2.1.0 (2020-10-29)
 
 ### Fix
