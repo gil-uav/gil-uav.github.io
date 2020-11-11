@@ -43,6 +43,11 @@ callback([
   {
     "text": "The dataset v0.0.1",
     "href": "https://gil-uav.github.io//semantic_segmentation/2020/11/09/Dataset-V1/"
+  } ,
+
+  {
+    "text": "The dataset v0.1.0",
+    "href": "https://gil-uav.github.io//semantic_segmentation/2020/11/11/Dataset-V2/"
   } 
 
 ])
