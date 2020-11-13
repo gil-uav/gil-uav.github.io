@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Second progress presentation - GIL-UAV</title>
+		<title>Third progress presentation - GIL-UAV</title>
 		
 		
 
@@ -17,9 +17,9 @@
 
 		
 		
-		<meta property="og:title" content="Second progress presentation" />
+		<meta property="og:title" content="Third progress presentation" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://gil-uav.github.io////2020/10/16/Second-Presentation/" />
+<meta property="og:url" content="https://gil-uav.github.io////2020/11/12/Third-Presentation/" />
 <meta property="og:image" content="https://gil-uav.github.io///img/home-bg-2.jpg">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -72,12 +72,12 @@
 			<div class="slides">
 <section markdown="1" data-background="">
 <section markdown="1">
-<h2 id="second-progress-presentation">Second progress presentation</h2>
+<h2 id="third-progress-presentation">Third progress presentation</h2>
 <hr>
 <h4 id="vegard-bergsvik-øvstegård">Vegard Bergsvik Øvstegård</h4>
-<h4 id="fri---16-oct-2020">Fri - 16 Oct 2020</h4>
+<h4 id="fri---13-nov-2020">Fri - 13 Nov 2020</h4>
 <p><br/> <br/></p>
-<p>Days until delivery: 214 days</p>
+<p>Days until delivery: 186 days</p>
 </section>
 </section>
 <section data-background>
@@ -98,182 +98,7 @@
 <section data-background>
 <section>
 <h3 id="status-from-previous-progress-presentation">Status from previous progress presentation</h3>
-<h4 id="section"><progress value="39" max="100" ></progress></h4>
-<table>
-<thead>
-<tr class="header">
-<th>Task</th>
-<th style="text-align: right;">Progress</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><em>In progress</em>:</td>
-<td style="text-align: right;"></td>
-</tr>
-<tr class="even">
-<td>1. Create U-net (PyTorch, multi-GPU)</td>
-<td style="text-align: right;"><progress value="65" max="100" ></progress></td>
-</tr>
-<tr class="odd">
-<td>2. Acquire &amp; improve Dataset</td>
-<td style="text-align: right;"><progress value="10" max="100" ></progress></td>
-</tr>
-<tr class="even">
-<td><em>To do</em>:</td>
-<td style="text-align: right;"></td>
-</tr>
-<tr class="odd">
-<td>3. Train the U-net</td>
-<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
-</tr>
-<tr class="even">
-<td>4. Code dataset-producing software</td>
-<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
-</tr>
-<tr class="odd">
-<td>5. Get drone footage</td>
-<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
-</tr>
-<tr class="even">
-<td>6. Implement framework(C++, SIMD, CUDA)</td>
-<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
-</tr>
-<tr class="odd">
-<td><em>Completed</em></td>
-<td style="text-align: right;"></td>
-</tr>
-<tr class="even">
-<td>Implement naive MCL algorithm (Python)</td>
-<td style="text-align: right;"><progress value="100" max="100" ></progress></td>
-</tr>
-<tr class="odd">
-<td>Get hardware (nVIDIA Jetson TX1)</td>
-<td style="text-align: right;"><progress value="100" max="100" ></progress></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section>
-<h3 id="updated-tasks">Updated tasks</h3>
-<table>
-<thead>
-<tr class="header">
-<th>Task</th>
-<th style="text-align: right;">Progress</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1. Create U-net (PyTorch, multi-GPU)</td>
-<td style="text-align: right;"><progress value="100" max="100" ></progress></td>
-</tr>
-<tr class="even">
-<td>2. Acquire &amp; improve Dataset</td>
-<td style="text-align: right;"><progress value="20" max="100" ></progress></td>
-</tr>
-<tr class="odd">
-<td>3. Train the U-net</td>
-<td style="text-align: right;"><progress value="20" max="100" ></progress></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section>
-<h3 id="create-u-net-pytorch-multi-gpu">Create U-net (PyTorch, multi-GPU) <progress value="100" max="100" ></progress></h3>
-<ul>
-<li>Base model and framework implemented with <em>PyTorch</em> and <em>PyTorch Ignite</em></li>
-<li>Features:
-<ul>
-<li>Gradient clipping</li>
-<li>Gradient accumulation</li>
-<li>Early stopping</li>
-<li>Metrics</li>
-<li>Distributed data parallel(DDP)</li>
-<li>Multi GPU training</li>
-<li>Training notification(Discord)</li>
-<li>Learning rate scheduler (ReduceLROnPlateau)</li>
-<li>Rescaling of images.</li>
-</ul></li>
-</ul>
-</section>
-<section>
-<h3 id="create-u-net-pytorch-multi-gpu-1">Create U-net (PyTorch, multi-GPU) <progress value="100" max="100" ></progress></h3>
-<ul>
-<li>Features:
-<ul>
-<li>Data augmentation for training(All are random to some degree):
-<ul>
-<li>Contrast</li>
-<li>Brightness</li>
-<li>Saturation</li>
-<li>Noise; Gaussian, Salt &amp; Pepper, Poission, Speckle.</li>
-<li>Rotations(<br /><span class="math display">$$n*\frac{pi}{2}$$</span><br />)</li>
-<li>Vertical and Horisontal flips.</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section>
-<h3 id="acquire-improve-dataset">Acquire &amp; improve Dataset <progress value="10" max="100" ></progress></h3>
-<ul>
-<li>Extracted larger aerial photographs from existing data, of which will aid in expanding the dataset by several images.</li>
-<li>Fine-tuned the ground truth segmentation images as they where not overlapping buildings enough.</li>
-<li>Have finally gotten access to Kartverkets database: <img src="/img/kartverket.jpg" alt="Kartverket meme" width="200"/></li>
-</ul>
-</section>
-<section>
-<h3 id="acquire-improve-dataset-1">Acquire &amp; improve Dataset <progress value="10" max="100" ></progress></h3>
-<h4 id="resultsnotes">Resultsnotes:</h4>
-<ul>
-<li>Ground truth is far from perfect even after fine-tuning. This does yield noise in the dataset, witch may lead to the following cases:
-<ol type="1">
-<li>NEGATIVE: Learning gets corrupted and a suitable global optimum may never occur.</li>
-<li>POSITIVE: Noise may induce better generalization for the network.
-<ul>
-<li>Real life scenarios contain occlusions in the images, and network may learn to draw buildings as squares despite say occluding trees.</li>
-</ul></li>
-</ol></li>
-</ul>
-</section>
-<section>
-<h4 id="train-the-u-net">Train the U-net <progress value="30" max="100" ></progress></h4>
-<ul>
-<li>Attained several good preliminary results despite the network not being tuned and with a lacking dataset.</li>
-<li>Somewhat sceptical to the results. Test and validation data is completely separate, but they are very similar. I assume images from example drone-footage will not be as good.</li>
-<li>Results look like overfitting, but no indications of it from metrics.</li>
-</ul>
-</section>
-<section>
-<h4 id="train-the-u-net-1">Train the U-net <progress value="30" max="100" ></progress></h4>
-<p><img src="/img/unet_prelim1.png" alt="U-net preliminary results" /> Segmented buildings masked in white to the right.</p>
-</section>
-<section>
-<h4 id="train-the-u-net-2">Train the U-net <progress value="30" max="100" ></progress></h4>
-<p><img src="/img/unet_prelim2.png" alt="U-net preliminary results" /> Ground truth left and prediction right.</p>
-</section>
-<section>
-<h4 id="train-the-u-net-3">Train the U-net <progress value="30" max="100" ></progress></h4>
-<p><img src="/img/unet_prelim3.png" alt="U-net preliminary results" /></p>
-<p>Training rounds left, validation rounds right. <br> No indications of overfitting. Light blue had learning-rate of 0.001. Metric is Binary Cross Entropy with Logits(BCEWithLogitsLoss).</p>
-</section>
-<section>
-<h4 id="train-the-u-net-4">Train the U-net <progress value="30" max="100" ></progress></h4>
-<h4 id="resultsnotes-1">Resultsnotes:</h4>
-<ul>
-<li>Results appear to be overfitting, however without indications in metrics.</li>
-<li>Image resolution plays a big part, 512x512px images gave far better results then 256x256px.
-<ul>
-<li>I am considering increasing image size further, how ever this will affect batch-size and memory usage on GPUs.</li>
-</ul></li>
-<li>To much variation and randomness in data augmentation is disruptive for training. I.e to much noise results in no training(Duh).</li>
-<li>Considering adding elastic transformations to data-augmentation as not all buildings are square.</li>
-<li>Also considering adding grayscale transformations as the network appears to find red-bricked roof-tops much faster than any other. This might aid in a better global optimum.</li>
-</ul>
-</section>
-<section>
-<h4 id="current-status-and-progress">Current status and progress</h4>
-<h4 id="section-1"><progress value="45" max="100" ></progress></h4>
+<h4 id="section"><progress value="45" max="100" ></progress></h4>
 <table>
 <thead>
 <tr class="header">
@@ -327,9 +152,171 @@
 <p><em>Updated tasks</em>* <em>New tasks**</em></p>
 </section>
 <section>
+<h3 id="updated-tasks">Updated tasks</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th style="text-align: right;">Progress</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2. Acquire &amp; improve Dataset</td>
+<td style="text-align: right;"><progress value="50" max="100" ></progress></td>
+</tr>
+<tr class="even">
+<td>3. Train the U-net</td>
+<td style="text-align: right;"><progress value="40" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td>4. Code dataset-producing software</td>
+<td style="text-align: right;"><progress value="100" max="100" ></progress></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section>
+<h3 id="acquire-improve-dataset"><a href="https://gil-uav.github.io/semantic_segmentation/2020/11/09/Dataset-V1/">Acquire &amp; improve Dataset</a></h3>
+<h4 id="section-1"><progress value="50" max="100" ></progress></h4>
+<ul>
+<li>Orthophotos:
+<ul>
+<li>Location: Norway</li>
+<li>Year taken: 2018-2020</li>
+<li>Ca 64 map-tiles.</li>
+<li>Spanning over 200$ km^2$</li>
+</ul></li>
+<li>Classes:
+<ul>
+<li>Buildings</li>
+<li>Water bodies</li>
+<li>Background</li>
+</ul></li>
+</ul>
+</section>
+<section>
+<h3 id="ds-version-0.0.1"><a href="https://gil-uav.github.io/semantic_segmentation/2020/11/09/Dataset-V1/">DS Version 0.0.1:</a></h3>
+<ul>
+<li>25,1Gb of data</li>
+<li>67219 samples</li>
+<li>Issues:
+<ul>
+<li>Poor building annotations due to rectification</li>
+<li>Missing annotations on some buildings</li>
+<li>Very inaccurate water annotations</li>
+</ul></li>
+</ul>
+</section>
+<section>
+<h3 id="ds-bump-to-version-0.1.0"><a href="https://gil-uav.github.io/semantic_segmentation/2020/11/11/Dataset-V2/">DS Bump to Version 0.1.0:</a></h3>
+<ul>
+<li>Improvements:
+<ul>
+<li>Removed sets with images out of bounds from aerial photos.</li>
+<li>Removed sets containing only background class.</li>
+<li>Removed sets containing only water bodies class.</li>
+</ul></li>
+<li>17,4Gb of data</li>
+<li>43802 samples</li>
+<li>Class balance:
+<ul>
+<li>Building percentage: 24 %</li>
+<li>Water pixels: 6 %</li>
+<li>Background pixels: 69 %</li>
+</ul></li>
+</ul>
+</section>
+<section>
+<h3 id="code-dataset-producing-software">Code dataset-producing software</h3>
+<h4 id="section-2"><progress value="100" max="100" ></progress></h4>
+<p>Features:</p>
+<ul>
+<li>Automated extraction of ground truth labels from vector maps.</li>
+<li>Generates datasets from orthophotos and GT images.</li>
+<li>Discards (some)noisy sets.</li>
+<li>Produces dataset statistics
+<ul>
+<li>Class balance</li>
+<li>Mean</li>
+<li>Standard deviation</li>
+</ul></li>
+</ul>
+<p>Backlog:</p>
+<ul>
+<li>Remove sets with non-annotated buildings.</li>
+</ul>
+</section>
+<section>
+<h3 id="train-the-u-net">Train the U-net</h3>
+<h4 id="section-3"><progress value="40" max="100" ></progress></h4>
+<p>Test set example from newest dataset:</p>
+<figure>
+<img src="/img/example_v2.png" alt="Images and predictions" /><figcaption>Images and predictions</figcaption>
+</figure>
+</section>
+<section>
+<h3 id="train-the-u-net-1">Train the U-net</h3>
+<h4 id="section-4"><progress value="40" max="100" ></progress></h4>
+<figure>
+<img src="/img/example_v2_2.png" alt="Ground truth and predictions" /><figcaption>Ground truth and predictions</figcaption>
+</figure>
+</section>
+<section>
+<h4 id="current-status-and-progress">Current status and progress</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th style="text-align: right;">Progress</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>In progress</em>:</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>1. <em>Tune the U-net</em></td>
+<td style="text-align: right;"><progress value="50" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td>2. <em>Acquire &amp; improve Dataset</em>*</td>
+<td style="text-align: right;"><progress value="50" max="100" ></progress></td>
+</tr>
+<tr class="even">
+<td>3. <em>Train the U-net</em>*</td>
+<td style="text-align: right;"><progress value="40" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td><em>To do</em>:</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>4. Get drone footage</td>
+<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td>5. Implement framework(C++, SIMD, CUDA)</td>
+<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
+</tr>
+<tr class="even">
+<td><em>Completed</em></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Code dataset-producing software</strong></td>
+<td style="text-align: right;"><progress value="100" max="100" ></progress></td>
+</tr>
+</tbody>
+</table>
+<p><em>Updated tasks</em>* <em>New tasks**</em></p>
+</section>
+<section>
 <h4 id="completed-tasks">Completed tasks</h4>
 <ul>
-<li><strong>Create U-net (PyTorch, multi-GPU)</strong></li>
+<li><strong>Code dataset-producing software</strong></li>
+<li>Create U-net (PyTorch, multi-GPU)</li>
 <li>Implement naive MCL algorithm (Python)</li>
 <li>Get hardware (nVIDIA Jetson TX1)</li>
 </ul>
@@ -338,28 +325,24 @@
 <h2 id="plan-for-the-next-fortnight">Plan for the next fortnight:</h2>
 <p><br/> <br/></p>
 <table>
-<colgroup>
-<col style="width: 42%" />
-<col style="width: 57%" />
-</colgroup>
 <thead>
 <tr class="header">
-<th>Week 43</th>
-<th>Week 44</th>
+<th>Week 47</th>
+<th>Week 48</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Tune and train the U-net</td>
-<td>Tune and train the U-net</td>
+<td>Port MCL code from Python to C++</td>
 </tr>
 <tr class="even">
-<td>Acquire &amp; improve Dataset</td>
+<td>Get drone footage</td>
 <td>Get drone footage</td>
 </tr>
 <tr class="odd">
-<td>Update master thesis with current results and findings</td>
-<td>Create orthophoto maps from drone-footage</td>
+<td>Acquire &amp; improve Dataset</td>
+<td>Create orthophotos from drone footage</td>
 </tr>
 </tbody>
 </table>
@@ -368,7 +351,7 @@
 </section>
 <section data-background>
 <section>
-<h1 id="print"><a href="https://gil-uav.github.io//2020/10/16/Second-Presentation//?print-pdf#">Print</a></h1>
+<h1 id="print"><a href="https://gil-uav.github.io//2020/11/12/Third-Presentation//?print-pdf#">Print</a></h1>
 <h1 id="back"><a href="https://gil-uav.github.io/">Back</a></h1>
 </section>
 </section>
