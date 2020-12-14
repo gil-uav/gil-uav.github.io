@@ -53,6 +53,11 @@ callback([
   {
     "text": "Third progress presentation",
     "href": "https://gil-uav.github.io//2020/11/12/Third-Presentation/"
+  } ,
+
+  {
+    "text": "Monte Carlo Localization Background",
+    "href": "https://gil-uav.github.io//mcl/2020/11/23/MCL-Background/"
   } 
 
 ])
