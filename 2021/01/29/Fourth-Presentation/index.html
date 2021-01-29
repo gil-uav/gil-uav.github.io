@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Fifth progress presentation - GIL-UAV</title>
+		
+		
+
+		<meta name="citation_title" content="Project Pages - An Integrated Scientific Blogging Template">
+
+
+<meta name="citation_author" content="Vegard Bergsvik Øvstegård">
+
+
+
+		
+		
+		<meta property="og:title" content="Fifth progress presentation" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://gil-uav.github.io////2021/01/29/Fourth-Presentation/" />
+<meta property="og:image" content="https://gil-uav.github.io///img/home-bg-2.jpg">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="https://gil-uav.github.io//css/reveal.min.css">
+		<link rel="stylesheet" href="https://gil-uav.github.io//css/theme/night.css" id="theme"> <!-- This is where THEME --> 
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="https://gil-uav.github.io//lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = '/css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+			
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<!-- Pygments Github CSS -->
+		<link rel="stylesheet" href="https://gil-uav.github.io//css/syntax.css">
+			
+		
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-100795269-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+		
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section markdown="1" data-background="">
+<section markdown="1">
+<h2 id="fifth-progress-presentation">Fifth progress presentation</h2>
+<hr>
+<h4 id="vegard-bergsvik-øvstegård">Vegard Bergsvik Øvstegård</h4>
+<h4 id="fri---13-nov-2020">Fri - 13 Nov 2020</h4>
+<p><br/> <br/></p>
+<p>Days until delivery: 109 days</p>
+</section>
+</section>
+<section data-background>
+<section>
+<!-- Start Writing Below in Markdown -->
+<h2 id="gil-uav">GIL-UAV</h2>
+<p><strong>G</strong>PS-<strong>I</strong>ndependent <strong>L</strong>ocalization for <strong>UAV</strong>s</p>
+<figure>
+<img src="/img/framework.png" alt="System diagram" /><figcaption>System diagram</figcaption>
+</figure>
+</section>
+<section>
+<h2 id="framework-simulation">Framework simulation</h2>
+<iframe src="https://drive.google.com/file/d/1mx2gudpn-xdRaBKmrMXjMMrKQjHGAlqx/preview" width="640" height="480" allowfullscreen="true">
+</iframe>
+</section>
+</section>
+<section data-background>
+<section>
+<h3 id="status-from-previous-progress-presentation">Status from previous progress presentation</h3>
+<h4 id="section"><progress value="45" max="100" ></progress></h4>
+<table>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th style="text-align: right;">Progress</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>In progress</em>:</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>1. <em>Tune the U-net</em></td>
+<td style="text-align: right;"><progress value="50" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td>2. <em>Acquire &amp; improve Dataset</em>*</td>
+<td style="text-align: right;"><progress value="50" max="100" ></progress></td>
+</tr>
+<tr class="even">
+<td>3. <em>Train the U-net</em>*</td>
+<td style="text-align: right;"><progress value="40" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td><em>To do</em>:</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>4. Get drone footage</td>
+<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td>5. Implement framework(C++, SIMD, CUDA)</td>
+<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
+</tr>
+<tr class="even">
+<td><em>Completed</em></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Code dataset-producing software</strong></td>
+<td style="text-align: right;"><progress value="100" max="100" ></progress></td>
+</tr>
+</tbody>
+</table>
+<p><em>Updated tasks</em>* <em>New tasks**</em></p>
+</section>
+<section>
+<h3 id="updated-tasks">Updated tasks</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th style="text-align: right;">Progress</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>4. Get drone footage</td>
+<td style="text-align: right;"><progress value="25" max="100" ></progress></td>
+</tr>
+<tr class="even">
+<td>5. Implement framework(C++, SIMD, CUDA)</td>
+<td style="text-align: right;"><progress value="10" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td>5. Report writing</td>
+<td style="text-align: right;"><progress value="20" max="100" ></progress></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section>
+<h3 id="get-drone-footage">Get drone footage</h3>
+<h4 id="section-1"><progress value="25" max="100" ></progress></h4>
+<ul>
+<li>A1/A2/A3 drone licence
+<ul>
+<li>A2 is not free of charge..</li>
+</ul></li>
+<li>Footage of different environments:
+<ul>
+<li>Snow</li>
+<li>No leafs</li>
+<li>Rain</li>
+</ul></li>
+</ul>
+</section>
+<section>
+<h3 id="implement-framework">Implement framework</h3>
+<h4 id="section-2"><progress value="10" max="100" ></progress></h4>
+<ul>
+<li>Acquired Nvidia Jetson Nano and Nvidia Jets Tegra TX1.</li>
+<li>Started coding project in C++.</li>
+</ul>
+</section>
+<section>
+<h4 id="current-status-and-progress">Current status and progress</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th style="text-align: right;">Progress</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>In progress</em>:</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>1. <em>Tune the U-net</em></td>
+<td style="text-align: right;"><progress value="50" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td>2. Acquire &amp; improve Dataset</td>
+<td style="text-align: right;"><progress value="50" max="100" ></progress></td>
+</tr>
+<tr class="even">
+<td>3. Train the U-net</td>
+<td style="text-align: right;"><progress value="40" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td>4. Get drone footage*</td>
+<td style="text-align: right;"><progress value="25" max="100" ></progress></td>
+</tr>
+<tr class="even">
+<td>5. Implement framework(C++, SIMD, CUDA)*</td>
+<td style="text-align: right;"><progress value="10" max="100" ></progress></td>
+</tr>
+<tr class="odd">
+<td>5. <em>Report writing</em>*</td>
+<td style="text-align: right;"><progress value="20" max="100" ></progress></td>
+</tr>
+<tr class="even">
+<td><em>To do</em>:</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td>6. <em>Create test-set from drone footage</em>**</td>
+<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
+</tr>
+<tr class="even">
+<td>7. <em>Test segmentation on Nvidia boards</em>**</td>
+<td style="text-align: right;"><progress value="0" max="100" ></progress></td>
+</tr>
+</tbody>
+</table>
+<p><em>Updated tasks</em>* <em>New tasks**</em></p>
+</section>
+<section>
+<h4 id="completed-tasks">Completed tasks</h4>
+<ul>
+<li>Code dataset-producing software</li>
+<li>Create U-net (PyTorch, multi-GPU)</li>
+<li>Implement naive MCL algorithm (Python)</li>
+<li>Get hardware (nVIDIA Jetson TX1 &amp; Jetson Nano)</li>
+</ul>
+</section>
+<section>
+<h2 id="plan-for-the-next-fortnight">Plan for the next fortnight:</h2>
+<p><br/> <br/></p>
+<table>
+<thead>
+<tr class="header">
+<th>Week 5</th>
+<th>Week 6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Test segmentation on Nvidia Boards</td>
+<td>Get more drone footage</td>
+</tr>
+<tr class="even">
+<td>Develop further on MCL C++ implementation</td>
+<td>Write more on report.</td>
+</tr>
+<tr class="odd">
+<td>Acquire &amp; improve Dataset</td>
+<td>Write loads more on the report.</td>
+</tr>
+</tbody>
+</table>
+<!-- End Here -->
+</section>
+</section>
+<section data-background>
+<section>
+<h1 id="print"><a href="https://gil-uav.github.io//2021/01/29/Fourth-Presentation//?print-pdf#">Print</a></h1>
+<h1 id="back"><a href="https://gil-uav.github.io/">Back</a></h1>
+</section>
+</section>
+
+			</div>
+		</div>
+		
+		<script src="/lib/js/head.min.js "> </script>
+		<script src="/js/reveal.min.js "></script>
+	
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: 'cube', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+        			{ src: '/plugin/math/math.js', async: true }
+				]
+			});
+
+		</script>		
+	</body>
+	
+
+</html>
